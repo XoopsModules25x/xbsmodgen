@@ -1,0 +1,20 @@
+/**
+ * Constant definitions that are language specific rather than module specific
+ * Definitions contained in this file conform to the Xoops standard for Language main.php file format
+ * Typically your user side screen messages are put in this file
+ */
+ 
+/**#@+
+ * Language specific definitions
+ */
+
+//Message Constants
+define("_MD_{UMODTAG}_PAGETITLE","Page title for %s - %s");
+define("_MD_{UMODTAG}_MSG1","Please edit %s to display your information for this page");
+
+// Error string constants
+define("_MD_{UMODTAG}_ERR_1",'Example error message');
+
+/**#@-*/
+
+

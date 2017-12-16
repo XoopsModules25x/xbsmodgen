@@ -1,0 +1,71 @@
+/**#@+
+ * Constants for Admin menu - non language specific
+ */
+
+/**
+ * Admin menu parameters
+ *
+ * These MUST follow the format _AM_<ModDir>_URL_DOCS etc
+ * so that the xoops_module_admin_header functions can work.  
+ * The suffix after <ModDir> is not optional!
+ * Leave them commented out if you do not have the functionality for your module
+ * 
+ * Relative url from module directory for documentation
+ */
+
+define("_AM_{UMODDIR}_URL_DOCS","admin/help.php");
+/**
+ * Absolute url for module support site
+ */
+define("_AM_{UMODDIR}_URL_SUPPORT","{AUTHURL}");	
+/**
+ * absolute url for module donations site
+ */
+//define("_AM_{UMODDIR}_URL_DONATIONS","");		
+
+/**
+ * Module configuration option - MUST follow the format _AM_<ModDir>_MODCONFIG
+ * Value MUST be "xoops", "module" or "none"
+ */
+define("_AM_{UMODDIR}_MODCONFIG","xoops");
+
+/**
+ * If module configuration option = "module" then define the name of the script 
+ * to call for module configuration.  This relative to modDir/admin/
+ * MUST follow the format _AM_<ModDir>_MODCONFIGURL
+ * e.g. define("_AM_{UMODDIR}_MODCONFIGURL","{LMODTAG}_config.inc");
+ * and define a message that is shown to users prior to redirecting to the config page
+ * e.g. define("_AM_{UMODDIR}_MODCONFIGREDIRECT","Configuration is done via the CDM system. You will shortly be redirected there.")
+ */
+/**#@-*/
+
+/**#@+
+ * Constants for Admin menus - Language specific
+ */
+
+// Admin menu breadcrumb
+{!DEFADMMENU}
+
+//buttons
+define("_AM_{UMODTAG}_INSERT","Insert");
+define("_AM_{UMODTAG}_BROWSE","Browse");
+define("_AM_{UMODTAG}_SUBMIT","Submit");
+define("_AM_{UMODTAG}_SAVE","Save");
+define("_AM_{UMODTAG}_CANCEL","Cancel");
+define("_AM_{UMODTAG}_RESET","Reset");
+define("_AM_{UMODTAG}_EDIT","Edit");
+define("_AM_{UMODTAG}_GO","Go");
+define("_AM_{UMODTAG}_DEL","Delete");
+define("_AM_{UMODTAG}_USE","Use This Record");
+
+//button labels
+define("_AM_{UMODTAG}_INSERT_DESC","Create a new record");
+define("_AM_{UMODTAG}_BUTTONTRAY","Click to perform action");
+
+//Error messages
+
+//Other messages
+
+//Form Labels
+
+/**#@-*/

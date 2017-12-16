@@ -1,0 +1,17 @@
+
+/**
+* Do all the declarations etc needed by an admin page
+*/
+include_once "adminheader.inc";
+
+//Display the admin menu
+xoops_module_admin_menu(0,_AM_{UMODTAG}_ADMENU0);
+
+//Put your page display code between here ..
+
+echo "Please edit {!SCRIPTNAME} to display your information for this page";
+
+//and here!
+
+//And put footer in
+xoops_cp_footer();

@@ -1,0 +1,43 @@
+if ( file_exists( XOOPS_ROOT_PATH."/modules/{MODDIR}/header.inc" ) ) {
+	/**
+ 	* {UMODTAG} header
+ 	*/
+    include_once XOOPS_ROOT_PATH."/modules/{MODDIR}/header.inc";
+} else {
+	die("Unable to load {UMODTAG} header file);
+}
+
+/**
+ * Search {UMODTAG} module for items matching the requested query
+ *
+ * See other module search functions for information on how to construct
+ * this function
+ *
+ * @param array $queryarray array of words to search for
+ * @param string $andor Either 'AND' or 'OR'
+ * @param int $limit maximum number of items to retrieve
+ * @param int $offset offset into data table to start search from
+ * @param int $userif Id of item submitter
+ * @return array item information array
+ */
+function {LMODTAG}_search($queryarray, $andor, $limit, $offset, $userid){
+	/**
+	 * @global Xoops database handler
+	 */
+	global $xoopsDB;
+	//construct your sql seach string
+	$sql = '';
+	$result = $xoopsDB->query($sql,$limit,$offset);
+	$ret = array();
+	$i = 0;
+ 	while($myrow = $xoopsDB->fetchArray($result)){
+		$ret[$i]['image'] = ""; //link image
+		$ret[$i]['link'] = "";  //url for user to click on
+		$ret[$i]['title'] = ""; //item title
+		$ret[$i]['time'] = "";  //date and time of item submission
+		$ret[$i]['uid'] = "";   //item submitter id
+		$i++;
+	}
+	return $ret;
+}
+

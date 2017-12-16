@@ -1,0 +1,9 @@
+/*
+ * Definitions in this file conform to the Xoops standard for the blocks.php file
+ */
+
+/**
+ * Example block language constant
+ */
+define("_MB_{UMODTAG}_EXAMPLE","{MODNAME} Block Example");
+

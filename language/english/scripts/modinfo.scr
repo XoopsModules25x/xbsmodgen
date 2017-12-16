@@ -1,0 +1,34 @@
+/*
+ * Definitions in this file conform to the Xoops standard for the modinfo.php file
+ */
+
+/**
+ * The name of this module
+ */
+define("_MI_{UMODTAG}_NAME","{MODNAME}");
+
+/**
+ *  A brief description of this module
+ */
+define("_MI_{UMODTAG}_DESC","{MODDESC}");
+
+/**#@+
+ * Configuration item names and descriptions
+ */
+{!DEFCONFIG}
+
+/**#@-*/
+
+/**#@+
+ * User menu names
+ */
+{!DEFMENU}
+
+/**#@-*/
+
+/**#@+
+ * Block names and descriptions
+ */
+{!DEFBLOCKS}
+
+/**#@-*/

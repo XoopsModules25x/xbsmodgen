@@ -1,0 +1,43 @@
+if ( file_exists( XOOPS_ROOT_PATH."/modules/{MODDIR}/header.inc" ) ) {
+	/**
+ 	* {UMODTAG} header
+ 	*/
+    include_once XOOPS_ROOT_PATH."/modules/{MODDIR}/header.inc";
+} else {
+	die("Unable to load {UMODTAG} header file");
+}
+
+/**
+ * Module update function
+ *
+ * @global xoopsDB xoopsDatabase object
+ * @param xoopsModule &$module Handle to current module
+ * @param int $oldVersion version of module prior to update
+ * @return boolean True if success else False
+ */
+function xoops_module_update_{LMODTAG}(&$module,$oldVersion) {
+  global $xoopsDB;
+	return true;
+}//end function
+
+/**
+ * Module install function
+ *
+ * @param xoopModule &$module Handle to current module
+ * @return boolean True if success else False
+ */
+function xoops_module_install_{LMODTAG}(&$module) {
+//The basic SQL install is done via the SQL script
+return true;
+}//end function
+
+
+/**
+ * Module uninstall function
+ *
+ * @param xoopModule &$module Handle to current module
+ * @return boolean True if success else False
+ */
+function xoops_module_uninstall_{LMODTAG}(&$module) {
+return true;
+}//end function

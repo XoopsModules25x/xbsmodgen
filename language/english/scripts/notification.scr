@@ -1,0 +1,53 @@
+if ( file_exists( XOOPS_ROOT_PATH."/modules/{MODDIR}/header.inc" ) ) {
+	/**
+ 	* {UMODTAG} header
+ 	*/
+    include_once XOOPS_ROOT_PATH."/modules/{MODDIR}/header.inc";
+} else {
+	die("Unable to load {UMODTAG} header file);
+}
+
+/**
+ * Retrieve item information to notify users
+ *
+ * @param string $category notification category
+ * @param int $item_id identifier of item being notified
+ * @return array item information
+ */
+function {LMODTAG}_notify_iteminfo($category, $item_id)
+{
+	/**
+	 * @global Xoops Module opbject
+	 * @global Xoops Module Configuration object
+	 * @global Xoops Global Configuration object
+	 * @global Xoops Database Handler object
+	 */
+	global $xoopsModule, $xoopsModuleConfig, $xoopsConfig, $xoopsDB;
+;
+
+	if (empty($xoopsModule) || $xoopsModule->getVar('dirname') != '{LMODTAG}') {	
+		$module_handler =& xoops_gethandler('module');
+		$module =& $module_handler->getByDirname('{LMODTAG}');
+		$config_handler =& xoops_gethandler('config');
+		$config =& $config_handler->getConfigsByCat(0,$module->getVar('mid'));
+	} else {
+		$module =& $xoopsModule;
+		$config =& $xoopsModuleConfig;
+	}
+
+
+	switch ($category) {
+	case 'your_category_here':
+		$item['name'] = ''; //set the category id
+		$item['url'] = '';  //set url that user can click in email to view the category
+		break;
+	
+	default:
+		$item['name'] = '';
+		$item['url'] = '';
+		break;
+	}
+	
+	return $item;
+}
+?>

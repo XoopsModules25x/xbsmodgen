@@ -1,0 +1,36 @@
+
+/* Put your general purpose functions into this file
+ * It will automatically be included into your user side and 
+ * admin side pages
+ */
+
+/**
+ * Clean $_POST & $_GET input arrays
+ *
+ * @param array $inputArr (usually $_POST or $_GET but could be any array)
+ * @return array cleaned up input
+ */
+function cleanInput($inputArr) {
+	$cleanArr = array();
+	$myts =& MyTextSanitizer::getInstance();
+	foreach ($inputArr as $key => $value) {
+		$cleanArr[$key] = $myts->stripSlashesGPC($myts->censorString($value));
+	}
+	return $cleanArr;
+}
+
+/**
+ * Return a valid xoops user name given the user id
+ *
+ * @global xoopsUser Xoops user object
+ * @param int $id Xoops user id
+ * @return string Xoops real name if available else the logon/username
+ */
+function getXoopsUser($id) {
+  Global $xoopsUser;
+  $ret = $xoopsUser->getUnameFromId($id,TRUE);
+  if (empty($ret)) { //if it didn't return a real name then get username/nickname
+    $ret = $xoopsUser->getUnameFromId($id,FALSE);
+  }
+  return $ret;
+}
