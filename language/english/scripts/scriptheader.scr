@@ -1,0 +1,27 @@
+<?php
+/* {!SCRIPTNAME} {!DATETIME}
+   {MODNAME} - {MODDESC} - A XOOPS CMS Module
+   Copyright (c) {COPYRIGHT}
+   URL:     {AUTHURL}
+   Contact: {CONTACT}
+ 	
+   XOOPS
+   Copyright (c) 2000 XOOPS.org
+   URL:     http://www.xoops.org/
+    
+   {LICENSETEXT}
+    
+ */
+ 
+//The next comment block is for PHPDocumentor
+/**
+ * {MODNAME} - {MODDESC}
+ * 
+ * {!SCRIPTDESC}
+ * 
+ * @author {AUTHOR} ({CONTACT})
+ * @copyright {COPYRIGHT}
+ * @package {!PACKAGE}
+ * @subpackage {!SUBPACKAGE}
+ * 
+ */

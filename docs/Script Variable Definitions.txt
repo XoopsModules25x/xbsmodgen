@@ -1,0 +1,42 @@
+ModGen script variable definitions
+
+These variables can be included into a script and have the assigned meaning.
+Variables prefixed ! are programmatically controlled.  Others are set by the user when setting up the module for generation.
+
+{MODNAME}		Name of Module
+{MODDESC}		Short description of module
+{MODDIR}		Module directory
+{UMODDIR}		Module directory in uppercase
+{UMODTAG}		Module Tag Name in uppercase
+{LMODTAG}		Module Tag name in lowercase
+{AUTHOR}		Module author
+{COPYRIGHT}		Copyright notice
+{LICENSE}		Software License Type
+{LICENSETEXT}	Software License Notice text
+{CONTACT}		Author contact details
+{AUTHURL}		Author URL
+{HASUSERMENU}	Module has a user menu
+{HASADMINMENU}	Module has an administration menu
+{HASSEARCH}		Module has search facilities
+{HASCOMMENTS}	Module has comment facilities
+{HASNOTIFY}		Module has notification facility
+
+{!SCRIPTDESC}	Script description
+{!PACKAGE}		PHPDocumentor package name
+{!SUBPACKAGE}	PHPDocumentor subpackage name
+{!SCRIPTNAME}   Name of the script
+{!DATETIME}		Current date and time
+{!XCFGTABLES}	List of tables for xoops_version.php
+{!XCFGUSERMENU} Menu options for user side menu
+{!XCFGADMINMENU} Menu options for administration menu
+{!XCFGCONFIG}	Config (Preferences) items
+{!XCFGBLOCKS}	Block descriptions for xoops_version.php
+{!METATAGS}		XBS MetaTags configuration information
+{!SQL}			MySQL Table creation script
+{!DEFTABLES}	Constant defines for sql table names
+{!COUNTER}		An incrementing counter
+{!DEFADMMENU}	Constant defines for admin menu items
+{!YEAR}			The current year
+{!DEFCONFIG}	Constant defines for admin config items
+{!DEFMENU}		Constant defines for user menu items
+{!DEFBLOCKS}	Constant defines for blocks

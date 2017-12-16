@@ -1,0 +1,8 @@
+<h4><{$lang_pagetitle}></h4>
+<div align='center'><{$lang_msg}></div><br>
+
+<!-- do not remove the following copyright section -->
+<div align="right">
+<br>{MODNAME} (c) {!YEAR}, <a href="{AUTHURL}" title="Click to see software author's web page" target="_blank">{AUTHOR}</a>
+</div>
+<!-- end of copyright section -->

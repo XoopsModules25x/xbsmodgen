@@ -1,0 +1,34 @@
+
+if ( file_exists( XOOPS_ROOT_PATH."/modules/{MODDIR}/header.inc" ) ) {
+	/**
+ 	* {UMODTAG} header
+ 	*/
+    include_once XOOPS_ROOT_PATH."/modules/{MODDIR}/header.inc";
+} else {
+	die("Unable to load {UMODTAG} header file);
+}
+
+/**
+ * Comments update
+ *
+ * @param int $id Identifier of object to which comment is attached
+ * @param int $total_num total number of comments for item
+ */
+function {LMODTAG}_com_update($id, $total_num){
+	/**
+	 * Xoops Database object
+	 */
+	global $xoopsDB;
+	//construct your SQL query to update comments in your tables
+	$sql='';
+	$xoopsDB->query($sql);
+}
+
+/**
+ * Send an email to comment approver
+ *
+ * @param &text $comment handle to comment text
+ */
+function {LMODTAG}_com_approve(&$comment){
+	// notification mail here
+}

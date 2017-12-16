@@ -1,0 +1,38 @@
+/**
+ * @global Xoops options handler
+ * @global Xoops user handler
+ * @global Xoops Smarty template handler
+ */
+global $xoopsOption,$xoopsUser,$xoopsTpl;
+
+
+/**
+ * MUST include our module page header
+ */
+require("header.inc");
+
+//Set your page template here, before including header,php
+$xoopsOption['template_main'] = 'mytemplate.tpl';	
+
+/**
+ * Xoops main header file
+ */
+require_once XOOPS_ROOT_PATH."/header.php";	
+
+//Include/require any other files here
+
+//Check to see if user logged in.  Change processing to
+// be more user friendly.  You only need this check if
+// you need user to be logged in to use page
+if (empty($xoopsUser)) die("User not logged in");
+    
+//Do your page processing between here ..
+
+$xoopsTpl->assign('lang_pagetitle', sprintf(_MD_{UMODTAG}_PAGETITLE,'{MODNAME}','{!SCRIPTNAME}'));
+$xoopsTpl->assign('lang_msg', sprintf(_MD_{UMODTAG}_MSG1,'{!SCRIPTNAME}'));
+
+//and here!
+/**
+ * Xoops page footer
+ */
+include XOOPS_ROOT_PATH."/footer.php";

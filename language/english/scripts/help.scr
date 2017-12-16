@@ -1,0 +1,21 @@
+
+/**
+* Do all the declarations etc needed by an admin page
+*/
+include_once "adminheader.inc";
+
+//Display the admin menu
+xoops_module_admin_menu(0,'Help');
+
+/**
+* To use this as a template you need to write code to display
+* whatever it is you want displaying between here...
+*/
+echo "Please edit {!SCRIPTNAME} to display the help information for this module";
+
+/**
+* and here!
+*/
+
+//And put footer in
+xoops_cp_footer();
