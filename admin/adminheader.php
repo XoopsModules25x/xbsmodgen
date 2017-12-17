@@ -2,7 +2,7 @@
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
-//                       <http://www.xoops.org/>                             //
+//                       <https://xoops.org/>                             //
 //  ------------------------------------------------------------------------ //
 //  This program is free software; you can redistribute it and/or modify     //
 //  it under the terms of the GNU General Public License as published by     //
@@ -26,7 +26,7 @@
 // Author:    Ashley Kitson                                                  //
 // Copyright: (c) 2006, Ashley Kitson
 // URL:       http://xoobs.net			                                     //
-// Project:   The XOOPS Project (http://www.xoops.org/)                      //
+// Project:   The XOOPS Project (https://xoops.org/)                      //
 // Module:    XBS Module generator (XBS_MODGEN)                              //
 // ------------------------------------------------------------------------- //
 /**
@@ -53,7 +53,7 @@
 * - sets up var $xoopsModuleConfig object to hold current module configuration parameters
 * - loads up the default language file for admin interface
 */
-include_once "../../../include/cp_header.php";
+include_once __DIR__ . '/../../../include/cp_header.php';
 
 /**
 * @global object Xoops user object
@@ -89,16 +89,16 @@ function xoops_module_admin_menu ($currentoption = 0, $breadcrumb = '')
 	/**
 	* @var string module directory name
 	*/
-	$modDir = $xoopsModule->getVar("dirname");
+	$modDir = $xoopsModule->getVar('dirname');
 	/**
 	* @var string Set the path to the admin images directory
 	*/
-	$imagePath = XOOPS_URL."/modules/".$modDir."/admin/images/"; //<V2.1 version
+	$imagePath = XOOPS_URL . '/modules/' . $modDir . '/admin/images/'; //<V2.1 version
 	//$imagePath = XOOPS_URL."/images/admin/";  //V2.1 version
 	/**
 	* Load up the module installation constants so that when menu.php is included, the menu strings are set correctly
 	*/
-	$modDir = $xoopsModule->getVar("dirname");
+	$modDir = $xoopsModule->getVar('dirname');
 	if (file_exists(XOOPS_ROOT_PATH . '/modules/' . $modDir . '/language/' . $xoopsConfig['language'] . '/admin.php')) {
 	   include_once XOOPS_ROOT_PATH . '/modules/' . $modDir . '/language/' . $xoopsConfig['language'] . '/admin.php';
 	} else {
@@ -107,32 +107,32 @@ function xoops_module_admin_menu ($currentoption = 0, $breadcrumb = '')
 
 	//include the default xoops language file for the admin interface
 	//NOT required in this file for V2.1
-	if ( file_exists( XOOPS_ROOT_PATH.'/modules/' . $modDir ."/language/" . $xoopsConfig['language'] . "/admin2.php" ) ) {
-	    include XOOPS_ROOT_PATH.'/modules/' . $modDir ."/language/" . $xoopsConfig['language'] . "/admin2.php";
+	if ( file_exists( XOOPS_ROOT_PATH.'/modules/' . $modDir . '/language/' . $xoopsConfig['language'] . '/admin2.php') ) {
+	    include XOOPS_ROOT_PATH.'/modules/' . $modDir . '/language/' . $xoopsConfig['language'] . '/admin2.php';
 	}
-	elseif ( file_exists( XOOPS_ROOT_PATH.'/modules/' . $modDir ."/language/english/admin.php2" ) ) {
-	    include XOOPS_ROOT_PATH.'/modules/' . $modDir ."/language/english/admin2.php";
+	elseif ( file_exists( XOOPS_ROOT_PATH.'/modules/' . $modDir . '/language/english/admin.php2') ) {
+	    include XOOPS_ROOT_PATH.'/modules/' . $modDir . '/language/english/admin2.php';
 	}
 
 	/**
 	* Set up menu option display array
 	*/
-	include_once XOOPS_ROOT_PATH."/modules/".$modDir."/admin/menu.inc";
+	include_once XOOPS_ROOT_PATH . '/modules/' . $modDir . '/admin/menu.php';
 	
 	//extend the menu option array to hold colour information
 	// and strip out the /admin/ part of the link name
-	$dispMenu = array();
+	$dispMenu = [];
 	$c = 1;
 	foreach ($adminmenu as $option) {
-		$dispMenu[$c]["tblColour"]='';
-		$arr = explode('/',$option['link']);
-		$dispMenu[$c]["link"] = $arr[ count($arr)-1];
-		$dispMenu[$c]["title"] = $option["title"];
+		$dispMenu[$c]['tblColour'] ='';
+		$arr                       = explode('/',$option['link']);
+		$dispMenu[$c]['link']      = $arr[count($arr) - 1];
+		$dispMenu[$c]['title']     = $option['title'];
 		$c++;
 	}
 	//set the current option colour
 	if ($currentoption > 0) {
-		$dispMenu[$currentoption]["tblColour"] = "current";
+		$dispMenu[$currentoption]['tblColour'] = 'current';
 	}
 	
 	//upper case the module directory
@@ -141,49 +141,49 @@ function xoops_module_admin_menu ($currentoption = 0, $breadcrumb = '')
 	/**
 	* @var boolean has the module got documentation
 	*/ 
-	$hasDocs = defined("_AM_".$mdir."_URL_DOCS");
+	$hasDocs = defined('_AM_' . $mdir . '_URL_DOCS');
 	/**
 	* @var boolean has the module got support
 	*/
-	$hasSupport = defined("_AM_".$mdir."_URL_SUPPORT");
+	$hasSupport = defined('_AM_' . $mdir . '_URL_SUPPORT');
 	/**
 	* @var boolean Has the module got donations facility
 	*/
-	$hasDonations = defined("_AM_".$mdir."_URL_DONATIONS");
+	$hasDonations = defined('_AM_' . $mdir . '_URL_DONATIONS');
 	
 	if ($hasDocs) {
 		/**
 		* @var string Url of documentation
 		*/
-		$urlDocs = XOOPS_URL . '/modules/' . $modDir . "/" . constant("_AM_".$mdir."_URL_DOCS");
+		$urlDocs = XOOPS_URL . '/modules/' . $modDir . '/' . constant('_AM_' . $mdir . '_URL_DOCS');
 	}
 	if ($hasSupport) {
 		/**
 		* @var string Url of support site
 		*/
-		$urlSupport = constant("_AM_".$mdir."_URL_SUPPORT");
+		$urlSupport = constant('_AM_' . $mdir . '_URL_SUPPORT');
 	}
 	if ($hasDonations) {
 		/**
 		* @var string Url of donations facility
 		*/
-		$urlDonations = constant("_AM_".$mdir."_URL_DONATIONS");
+		$urlDonations = constant('_AM_' . $mdir . '_URL_DONATIONS');
 	}
 	
-	if (defined("_AM_".$mdir."_MODCONFIG")) {
+	if (defined('_AM_' . $mdir . '_MODCONFIG')) {
 		/**
 		* @var string module config option
 		*/
-		$configType = constant("_AM_".$mdir."_MODCONFIG");
+		$configType = constant('_AM_' . $mdir . '_MODCONFIG');
 		/**
 		* @var boolean does the module have any configuration
 		*/
-		$hasConfig = ($configType != 'none');
-		if ($configType == "module") {
+		$hasConfig = ('none' != $configType);
+		if ('module' == $configType) {
 			/**
 			* @var string name of callback function for module configuration
 			*/
-			$modConfigUrl = constant("_AM_".$mdir."_MODCONFIGURL");
+			$modConfigUrl = constant('_AM_' . $mdir . '_MODCONFIGURL');
 		} 
 	} else {
 		$hasConfig = false;
@@ -211,47 +211,47 @@ function xoops_module_admin_menu ($currentoption = 0, $breadcrumb = '')
     ";
 	
 	
-	$myts =& MyTextSanitizer::getInstance();
+	$myts = MyTextSanitizer::getInstance();
 	
 	echo "<div id='buttontop'>";
-	echo "<table style=\"width: 100%; padding: 0; \" cellspacing=\"0\"><tr>";
-	echo "<td style=\"width: 70%; font-size: 10px; text-align: left; color: #2F5376; padding: 0 6px; line-height: 18px;\">";
+	echo '<table style="width: 100%; padding: 0; " cellspacing="0"><tr>';
+	echo '<td style="width: 70%; font-size: 10px; text-align: left; color: #2F5376; padding: 0 6px; line-height: 18px;">';
 	if ($hasConfig) {
-		$configStr = "<a class=\"nobutton\" href=";
-		if ($configType == "xoops") {
-			$configStr .=  "\"../../system/admin.php?fct=preferences&amp;op=showmod&amp;mod=" . $xoopsModule->getVar('mid') . "\">";
+		$configStr = '<a class="nobutton" href=';
+		if ('xoops' == $configType) {
+			$configStr .= '"../../system/admin.php?fct=preferences&amp;op=showmod&amp;mod=' . $xoopsModule->getVar('mid') . '">';
 		} else {
-			$configStr .= "\"". $modConfigUrl ."\">";
+			$configStr .= '"' . $modConfigUrl . '">';
 		}
-		$configStr .= _AD_MOD_CONFIG . "</a> | ";
+		$configStr .= _AD_MOD_CONFIG . '</a> | ';
 	}
 	echo $configStr;
-	echo "<a href=\"../index.php\">" . _AD_MOD_HOME . "</a>";
+	echo '<a href="../index.php">' . _AD_MOD_HOME . '</a>';
 	if ($hasDocs) {
-		echo " | <a target=\"_blank\" href=\"".$urlDocs."\">" . _AD_DOCS . "</a>";
+		echo ' | <a target="_blank" href="' . $urlDocs . '">' . _AD_DOCS . '</a>';
 	}
 	if ($hasSupport) {
-		echo " | <a target=\"_blank\" href=\"".$urlSupport."\">" . _AD_SUPPORT . "</a>";
+		echo ' | <a target="_blank" href="' . $urlSupport . '">' . _AD_SUPPORT . '</a>';
 	}
 	if ($hasDonations) {
-		echo  " | <a target=\"_blank\" href=\"".$urlDonations."\">" . _AD_DONATIONS . "</a>";
+		echo ' | <a target="_blank" href="' . $urlDonations . '">' . _AD_DONATIONS . '</a>';
 	}
-	echo "</td>";
-	echo "<td style=\"width: 30%; font-size: 10px; text-align: right; color: #2F5376; padding: 0 6px; line-height: 18px;\"><b>" . $myts->displayTarea($xoopsModule->getVar("name")) . " " . _AD_MODADMIN . "</b> " . $breadcrumb . "</td>";
-	echo "</tr></table>";
-	echo "</div>";
+	echo '</td>';
+	echo '<td style="width: 30%; font-size: 10px; text-align: right; color: #2F5376; padding: 0 6px; line-height: 18px;"><b>' . $myts->displayTarea($xoopsModule->getVar('name')) . ' ' . _AD_MODADMIN . '</b> ' . $breadcrumb . '</td>';
+	echo '</tr></table>';
+	echo '</div>';
 	echo "<div id='buttonbar'>";
-	echo "<ul>";
+	echo '<ul>';
 	foreach ($dispMenu as $option) {
-		echo "<li id='" . $option["tblColour"] . "'><a href='".$option["link"]."'><span>" . $option["title"] . "</span></a></li>";
+		echo "<li id='" . $option['tblColour'] . "'><a href='" . $option['link'] . "'><span>" . $option['title'] . '</span></a></li>';
 	}
-	echo "</ul></div><p>";
-	echo "<br /><br /><br /><pre>&nbsp;</pre><pre>&nbsp;</pre>";
+	echo '</ul></div><p>';
+	echo '<br /><br /><br /><pre>&nbsp;</pre><pre>&nbsp;</pre>';
 }
 
 
 // Load up the module language constants
-$modDir = $xoopsModule->getVar("dirname");
+$modDir = $xoopsModule->getVar('dirname');
 $modLang = $xoopsConfig['language'];
 
 if (file_exists(XOOPS_ROOT_PATH . '/modules/' . $modDir . '/language/' . $modLang . '/main.php')) {
@@ -263,27 +263,27 @@ if (file_exists(XOOPS_ROOT_PATH . '/modules/' . $modDir . '/language/' . $modLan
     include_once XOOPS_ROOT_PATH . '/modules/' . $modDir . '/english/main.php';
 }
 
-if ( file_exists( XOOPS_ROOT_PATH."/modules/" . $modDir . "/language/" . $modLang . "/admin.php" ) ) {
+if ( file_exists(XOOPS_ROOT_PATH . '/modules/' . $modDir . '/language/' . $modLang . '/admin.php') ) {
 	/**
  	* Include menu language definitions
  	*/
-    include_once XOOPS_ROOT_PATH."/modules/" . $modDir . "/language/" . $modLang . "/admin.php";
+    include_once XOOPS_ROOT_PATH . '/modules/' . $modDir . '/language/' . $modLang . '/admin.php';
 }
-elseif ( file_exists( XOOPS_ROOT_PATH."/modules/" . $modDir . "/language/english/admin.php" ) ) {
+elseif ( file_exists(XOOPS_ROOT_PATH . '/modules/' . $modDir . '/language/english/admin.php') ) {
 	/**
 	 * @ignore 
 	 */
-    include_once XOOPS_ROOT_PATH."/modules/" . $modDir . "/language/english/admin.php";
+    include_once XOOPS_ROOT_PATH . '/modules/' . $modDir . '/language/english/admin.php';
 }
 
 /**
 * Module main header
 */
-require_once "../header.inc";
+require_once __DIR__ . '/../header.php';
 /**
 * Module admin special functions
 */
-require_once "functions.inc"; 
+require_once __DIR__ . '/functions.php'; 
 
 /**
 * Put below any other includes you need for your admin pages to work.
@@ -293,10 +293,10 @@ require_once "functions.inc";
 /**
  * CDM definitions
  */
-include_once XOOPS_ROOT_PATH."/modules/xbs_cdm/language/english/main.php";
+include_once XOOPS_ROOT_PATH . '/modules/xbs_cdm/language/english/main.php';
 
 /**
 * Call the admin page header function
 */
 xoops_cp_header();
-?>
+

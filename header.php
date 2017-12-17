@@ -22,63 +22,63 @@
  * 
  */
 
-if (file_exists("../../mainfile.php")) {
+if (file_exists(__DIR__ . '/../../mainfile.php')) {
 	/**
 	* Xoops required include
 	*/
-	include_once("../../mainfile.php");
-} elseif (file_exists("../../../mainfile.php")) {
+	include_once __DIR__ . '/../../mainfile.php';
+} elseif (file_exists(__DIR__ . '/../../../mainfile.php')) {
 	/**
 	 * @ignore 
 	 */
-	include_once("../../../mainfile.php");
+	include_once __DIR__ . '/../../../mainfile.php';
 } else {
-	die("Unable to locate Xoops Mainfile");
+	die('Unable to locate Xoops Mainfile');
 }
 
 //Load CDM definitions
-if (file_exists(XOOPS_ROOT_PATH."/modules/xbs_cdm/include/defines.php")) {
+if (file_exists(XOOPS_ROOT_PATH . '/modules/xbs_cdm/include/defines.php')) {
 	/**
 	 * Require Code Data Management module definitions
 	 */
-	require_once(XOOPS_ROOT_PATH."/modules/xbs_cdm/include/defines.php");
-} elseif (file_exists(XOOPS_ROOT_PATH."/modules/xbs_cdm/include/defines.inc")) {
+	require_once XOOPS_ROOT_PATH . '/modules/xbs_cdm/include/defines.php';
+} elseif (file_exists(XOOPS_ROOT_PATH . '/modules/xbs_cdm/include/defines.php')) {
 	/**
 	 * @ignore 
 	 */
-	require_once(XOOPS_ROOT_PATH."/modules/xbs_cdm/include/defines.inc");
+	require_once XOOPS_ROOT_PATH . '/modules/xbs_cdm/include/defines.php';
 } else {
-	die("Unable to locate CDM Definitions");
+	die('Unable to locate CDM Definitions');
 }
 
 //Load XBS_MODGEN definitions
-if (file_exists(XOOPS_ROOT_PATH."/modules/xbs_modgen/include/defines.inc")) {
+if (file_exists(XOOPS_ROOT_PATH . '/modules/xbs_modgen/include/defines.php')) {
 	/**
 	 * XBS_Modgen non language specific constant definitions
 	 */
-	require_once(XOOPS_ROOT_PATH."/modules/xbs_modgen/include/defines.inc");
+	require_once XOOPS_ROOT_PATH . '/modules/xbs_modgen/include/defines.php';
 } else {
-	die("Unable to locate ModGen Definitions");
+	die('Unable to locate ModGen Definitions');
 }
 
 //Load XBS_MODGEN functions
-if (file_exists(XBS_MODGEN_PATH."/include/functions.inc")) {
+if (file_exists(XBS_MODGEN_PATH . '/include/functions.php')) {
 	/**
 	 * XBS_Modgen common functions
 	 */
-	require_once(XBS_MODGEN_PATH."/include/functions.inc");
+	require_once XBS_MODGEN_PATH . '/include/functions.php';
 } else {
-	die("Unable to locate ModGen Common Functions");
+	die('Unable to locate ModGen Common Functions');
 }
 
 //Load form elements
-if (file_exists(XBS_MODGEN_PATH."/class/class.xbs_modgen.form.inc")) {
+if (file_exists(XBS_MODGEN_PATH . '/class/class.xbs_modgen.form.php')) {
 	/**
 	* XBS_MODGEN Form elements
 	*/
-	require_once XBS_MODGEN_PATH."/class/class.xbs_modgen.form.inc";
+	require_once XBS_MODGEN_PATH . '/class/class.xbs_modgen.form.php';
 } else {
-	die("Unable to locate ModGen Form Elements");
+	die('Unable to locate ModGen Form Elements');
 }
 
-?>
+

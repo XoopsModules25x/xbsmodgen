@@ -2,7 +2,7 @@
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
-//                       <http://www.xoops.org/>                             //
+//                       <https://xoops.org/>                             //
 //  ------------------------------------------------------------------------ //
 //  This program is free software; you can redistribute it and/or modify     //
 //  it under the terms of the GNU General Public License as published by     //
@@ -26,7 +26,7 @@
 // Author:    Ashley Kitson                                                  //
 // Copyright: (c) 2006, Ashley Kitson
 // URL:       http://xoobs.net			                                     //
-// Project:   The XOOPS Project (http://www.xoops.org/)                      //
+// Project:   The XOOPS Project (https://xoops.org/)                      //
 // Module:    XBS Module Generator (XBS_MODGEN)                              //
 // ------------------------------------------------------------------------- //
 /**
@@ -50,18 +50,17 @@ $edit = false;
 $insert = false;
 $del = false;
 if (isset($clean2['op'])) {
-	if ($clean2['op']=='edit') $edit = true;
-	if ($clean2['op']=='new') $insert = true;
-	if ($clean2['op']=='del') $del = true;
+	if ('edit' == $clean2['op']) $edit = true;
+	if ('new' == $clean2['op']) $insert = true;
+	if ('del' == $clean2['op']) $del = true;
 }
-$save = (isset($clean['save']));
-$cancel = (isset($clean['cancel']));
+$save = isset($clean['save']);
+$cancel = isset($clean['cancel']);
 
 if (($edit || $insert || $del) && isset($clean2['id'])) {
-	$id = intval($clean2['id']);
+	$id = (int)$clean2['id'];
 } elseif (isset($clean['id'])) {
-	$id = intval($clean['id']);
+	$id = (int)$clean['id'];
 } else {
 	$id = null;
 }
-?>

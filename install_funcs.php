@@ -2,7 +2,7 @@
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
-//                       <http://www.xoops.org/>                             //
+//                       <https://xoops.org/>                             //
 //  ------------------------------------------------------------------------ //
 //  This program is free software; you can redistribute it and/or modify     //
 //  it under the terms of the GNU General Public License as published by     //
@@ -26,7 +26,7 @@
 // Author:    Ashley Kitson                                                  //
 // Copyright: (c) 2006, Ashley Kitson
 // URL:       http://xoobs.net			                                     //
-// Project:   The XOOPS Project (http://www.xoops.org/)                      //
+// Project:   The XOOPS Project (https://xoops.org/)                      //
 // Module:    XBS Module Generator (XBS_MODGEN)                              //
 // ------------------------------------------------------------------------- //
 
@@ -46,7 +46,7 @@
 /**
  * Include module defines
  */
-include_once(XOOPS_ROOT_PATH."/modules/xbs_modgen/include/defines.inc");
+include_once XOOPS_ROOT_PATH . '/modules/xbs_modgen/include/defines.php';
 
 /**
  * function xoops_module_update_xbs_modgen
@@ -60,7 +60,7 @@ include_once(XOOPS_ROOT_PATH."/modules/xbs_modgen/include/defines.inc");
  */
 function xoops_module_update_xbs_modgen(&$module,$oldVersion) {
   global $xoopsDB;
-  xbsModGenLogNotify("Updated");
+  xbsModGenLogNotify('Updated');
 	return true;
 }//end function
 
@@ -74,7 +74,7 @@ function xoops_module_update_xbs_modgen(&$module,$oldVersion) {
  */
 function xoops_module_install_xbs_modgen(&$module) {
 //The basic SQL install is done via the SQL script
-  xbsModGenLogNotify("Install");
+  xbsModGenLogNotify('Install');
 return true;
 }//end function
 
@@ -89,19 +89,19 @@ return true;
 function xoops_module_uninstall_xbs_modgen(&$module) {
 	//remove CDM codes inserted for Modgen
 	global $xoopsDB;
-	$sql1 = "delete from ".$xoopsDB->prefix(cdm_code)." where cd_set like 'XOBJ%'";
-	$sql2 = "delete from ".$xoopsDB->prefix(cdm_meta)." where cd_set like 'XOBJ%'";
+	$sql1 = 'delete from ' . $xoopsDB->prefix(cdm_code) . " where cd_set like 'XOBJ%'";
+	$sql2 = 'delete from ' . $xoopsDB->prefix(cdm_meta) . " where cd_set like 'XOBJ%'";
 	$ret1 = ($result = $xoopsDB->queryF($sql1));
 	$ret2 = ($result = $xoopsDB->queryF($sql2));
 	if (!($ret1 && $ret2)) {
     	$module->setErrors('Unable to remove ModGen data from CDM tables whilst uninstalling XBS ModGen module');
     	return false;
   	}
-	xbsModGenLogNotify("Uninstall");	
+	xbsModGenLogNotify('Uninstall');	
 	return true;
 }//end function
 
 
 
 
-?>
+

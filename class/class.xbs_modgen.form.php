@@ -2,7 +2,7 @@
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
-//                       <http://www.xoops.org/>                             //
+//                       <https://xoops.org/>                             //
 //  ------------------------------------------------------------------------ //
 //  This program is free software; you can redistribute it and/or modify     //
 //  it under the terms of the GNU General Public License as published by     //
@@ -26,7 +26,7 @@
 // Author:    Ashley Kitson                                                  //
 // Copyright: (c) 2006, Ashley Kitson
 // URL:       http://xoobs.net			                                     //
-// Project:   The XOOPS Project (http://www.xoops.org/)                      //
+// Project:   The XOOPS Project (https://xoops.org/)                      //
 // Module:    XBS Module generator (XBS_MODGEN)                                     //
 // ------------------------------------------------------------------------- //
 
@@ -40,13 +40,13 @@
 */
 
 //load CDM form object classes
-if (file_exists(CDM_PATH."/class/class.cdm.form.php")) {
+if (file_exists(CDM_PATH . '/class/class.cdm.form.php')) {
 	/**
 	* CDM Form Objects
 	*/
-	require_once CDM_PATH."/class/class.cdm.form.php";
+	require_once CDM_PATH . '/class/class.cdm.form.php';
 } else {
-	die("Unable to load CDM form object classes");
+	die('Unable to load CDM form object classes');
 }
 
 /**
@@ -65,9 +65,9 @@ class XBS_MODGENFormSelectModule extends XoopsFormSelect {
 	* @param	mixed	$value	    Pre-selected value (or array of them).
 	* @param	int		$size	    Number of rows. "1" makes a drop-down-list
 	*/
-  function XBS_MODGENFormSelectModule($caption, $name, $value=null, $size=1) {
-    $this->XoopsFormSelect($caption, $name, $value, $size);
-    $orgHandler =& xoops_getmodulehandler("XBS_MODGENModule");
+  function __construct($caption, $name, $value=null, $size=1) {
+    parent::__construct($caption, $name, $value, $size);
+    $orgHandler = xoops_getModuleHandler('XBS_MODGENModule');
     $res = $orgHandler->getSelectList();
     $this->addOptionArray($res);
   }
@@ -81,42 +81,41 @@ class XBS_MODGENFormSelectModule extends XoopsFormSelect {
 * @version 1
 */
 class XBS_MODGENElementTray extends XoopsFormElementTray {
-	/**
-	 * Constructor
-	 *
-	 * @param string $label Element Tray Label
-	 * @param boolean $hasInsert tray has insert button
-	 * @param boolean $hasSubmit tray has submit button
-	 * @param boolean $hasEdit tray has edit (this record) button
-	 * @param boolean $hasSave tray has a save record button
-	 * @param boolean $hasCancel tray has cancel button
-	 * @param boolean $hasUse tray has use (this record) button
-	 * @return XBS_MODGENElementTray
-	 */
-	function XBS_MODGENElementTray($label,$hasInsert=false,$hasSubmit=true,$hasEdit = false,$hasSave = false,$hasCancel=true, $hasUse) {
-		$this->XoopsFormElementTray($label);
+    /**
+     * Constructor
+     *
+     * @param string  $label     Element Tray Label
+     * @param boolean $hasInsert tray has insert button
+     * @param boolean $hasSubmit tray has submit button
+     * @param boolean $hasEdit   tray has edit (this record) button
+     * @param boolean $hasSave   tray has a save record button
+     * @param boolean $hasCancel tray has cancel button
+     * @param boolean $hasUse    tray has use (this record) button
+     */
+	function __construct($label,$hasInsert=false,$hasSubmit=true,$hasEdit = false,$hasSave = false,$hasCancel=true, $hasUse) {
+		parent::__construct($label);
 		if ($hasSubmit) {
-			$submit = new XoopsFormButton("","submit",_AM_XBS_MODGEN_SUBMIT,"submit");
-			$this->addElement(($submit));
+			$submit = new XoopsFormButton('', 'submit', _AM_XBS_MODGEN_SUBMIT, 'submit');
+			$this->addElement($submit);
 		}
 		if ($hasEdit) {
-			$edit = new XoopsFormButton("","edit",_AM_XBS_MODGEN_EDIT,"submit");
-			$this->addElement(($edit));
+			$edit = new XoopsFormButton('', 'edit', _AM_XBS_MODGEN_EDIT, 'submit');
+			$this->addElement($edit);
 		}
 		if ($hasSave) {
-			$save = new XoopsFormButton("","save",_AM_XBS_MODGEN_SAVE,"submit");
-			$this->addElement(($save));
+			$save = new XoopsFormButton('', 'save', _AM_XBS_MODGEN_SAVE, 'submit');
+			$this->addElement($save);
 		}
 		if ($hasCancel) {
-			$cancel = new XoopsFormButton("","cancel",_AM_XBS_MODGEN_CANCEL,"submit");
+			$cancel = new XoopsFormButton('', 'cancel', _AM_XBS_MODGEN_CANCEL, 'submit');
 			$this->addElement($cancel);
 		}
 		if ($hasInsert) {
-			$insert = new XoopsFormButton("","insert",_AM_XBS_MODGEN_INSERT,"submit");
+			$insert = new XoopsFormButton('', 'insert', _AM_XBS_MODGEN_INSERT, 'submit');
 			$this->addElement($insert);
 		}
 		if ($hasUse) {
-			$use = new XoopsFormButton("","use",_AM_XBS_MODGEN_USE,"submit");
+			$use = new XoopsFormButton('', 'use', _AM_XBS_MODGEN_USE, 'submit');
 			$this->addElement($use);
 		}
 	}//end constructor
@@ -130,20 +129,19 @@ class XBS_MODGENElementTray extends XoopsFormElementTray {
 * @version 1
 */
 class XBS_MODGENEditForm extends XoopsThemeForm {
-	/**
-	 * Constructor
-	 *
-	 * @param ModgenObject $obj Handle to object to edit
-	 * @param string $frmName Name of form
-	 * @param string $nextScript name of POST processing script to execute
-	 * @param string $labelFlds comma seperated list of field names to treat as lables rather than editable fields. Lable flds have a hidden field with the value that can be read by the POST processing script
-	 * @param string $keyColName Name of key field to change name of
-	 * @param string $keyFldName New name for key field
-	 * @return XBS_MODGENEditForm
-	 */
-	function XBS_MODGENEditForm(&$obj,$frmName,$nextScript,$labelFlds='',$keyColName = null,$keyFldName = null) {
+    /**
+     * Constructor
+     *
+     * @param ModgenObject $obj        Handle to object to edit
+     * @param string       $frmName    Name of form
+     * @param string       $nextScript name of POST processing script to execute
+     * @param string       $labelFlds  comma seperated list of field names to treat as lables rather than editable fields. Lable flds have a hidden field with the value that can be read by the POST processing script
+     * @param string       $keyColName Name of key field to change name of
+     * @param string       $keyFldName New name for key field
+     */
+	function __construct(&$obj,$frmName,$nextScript,$labelFlds='',$keyColName = null,$keyFldName = null) {
 		
-		parent::XoopsThemeForm($frmName,"frm".get_class($obj),$nextScript);
+		parent::__construct($frmName, 'frm' . get_class($obj), $nextScript);
 		$vars = $obj->getVars();
 		$changeKey = (isset($keyColName) && isset($keyFldName));
 		$hasRequired = false;
@@ -174,10 +172,10 @@ class XBS_MODGENEditForm extends XoopsThemeForm {
 						$ele->addOptionArray($var['options']);
 						break;
 					case XBS_FRM_DATETIME:
-						$ele = new XoopsFormDateTime($var['frmName'], $key, intval($var['frmParams']), $value);
+						$ele = new XoopsFormDateTime($var['frmName'], $key, (int)$var['frmParams'], $value);
 						break;
 					case XBS_FRM_FILE:
-						$ele = new XoopsFormFile($var['frmName'], $key,intval($var['maxlength']));
+						$ele = new XoopsFormFile($var['frmName'], $key, (int)$var['maxlength']);
 						break;
 					case XBS_FRM_HIDDEN:
 						$ele = new XoopsFormHidden($key, $value);
@@ -186,7 +184,7 @@ class XBS_MODGENEditForm extends XoopsThemeForm {
 						$ele = new XoopsFormLabel($var['frmName'], $value);
 						break;
 					case XBS_FRM_PASSWORD:
-						$ele = new XoopsFormPassword($var['frmName'], $key, intval($var['frmParams']), $var['maxlength'], $value);
+						$ele = new XoopsFormPassword($var['frmName'], $key, (int)$var['frmParams'], $var['maxlength'], $value);
 						break;
 					case XBS_FRM_RADIO:
 						$ele = new XoopsFormRadio($var['frmName'], $key, $value);
@@ -254,8 +252,8 @@ class XBS_MODGENTableForm {
 	 * @access private
 	 */
 	var $_title = '';			//title for table
-	var $_cols = array();		//column names
-	var $_rows = array();		//array of arrays, containing data for each column per row
+	var $_cols = [];		//column names
+	var $_rows = [];		//array of arrays, containing data for each column per row
 	var $_hasInsert = false;	//Display a new record insert button
 	var $_insertUrl = '';		//url to redirect user to if new record required
 	var $_hasEdit = false;		//Display edit button for each row
@@ -279,13 +277,13 @@ class XBS_MODGENTableForm {
 	 * @param string $editUrl url to redirect to edit a record
 	 * @param string $delUrl url to redirect to delete a record
 	 */
-	function XBS_MODGENTableForm($colNames, $title = null, $dispKey = true, $newUrl = null, $editUrl = null, $delUrl = null) {
+	function __construct($colNames, $title = null, $dispKey = true, $newUrl = null, $editUrl = null, $delUrl = null) {
 		$this->_title = $title;
-		$this->_hasInsert = ($newUrl!=null);
+		$this->_hasInsert = (null != $newUrl);
 		$this->_insertUrl = $newUrl;
-		$this->_hasEdit = ($editUrl!=null);
+		$this->_hasEdit = (null != $editUrl);
 		$this->_editUrl = $editUrl;
-		$this->_hasDelete = ($delUrl!=null);
+		$this->_hasDelete = (null != $delUrl);
 		$this->_deleteUrl = $delUrl;
 		$this->_dispKey = ($dispKey?0:1);
 		if ($this->_hasEdit || $this->_hasDelete) {
@@ -324,28 +322,28 @@ class XBS_MODGENTableForm {
 		$numcols = count($this->_cols);
 		$content = "\n\n<!-- Table Edit Display -->\n\n<table border='0' cellpadding='4' cellspacing='1' width='100%' class='outer'>";
 		if ($this->_title) {
-			$content .= "<caption><b>".$this->_title."</b></caption>\n";  //title
+			$content .= '<caption><b>' . $this->_title . "</b></caption>\n";  //title
 		}
 		//set column names
 		$content .="<tr align=\"center\">\n  ";
 		for ($i=$this->_dispKey;$i<$numcols;$i++) {
-			$content .= "<th>".$this->_cols[$i]."</th>";
+			$content .= '<th>' . $this->_cols[$i] . '</th>';
 		}
 		$content .="\n</tr>\n";
 		//display data
-		$class = "even";
+		$class = 'even';
 		foreach ($this->_rows as $row) {
-			$class = ($class=="even"?"odd":"even");
+			$class = ('even' == $class ? 'odd' : 'even');
 			$content .="<tr align='left' class=\"".$class."\">\n  ";
 			for ($i=$this->_dispKey;$i<$numcols;$i++) {
 
-				$content .= "<td>".$row[$i]."</td>";
+				$content .= '<td>' . $row[$i] . '</td>';
 			}
 			$content .="\n</tr>\n";
 		}
 		//Put in an insert button if required
 		if ($this->_hasInsert) {
-			$content .= "<tr>\n  <td colspan=".$numcols." align=\"right\"><form action=\"".$this->_insertUrl."\" method=\"POST\"><input type=\"SUBMIT\" value=\""._AM_XBS_MODGEN_INSERT."\"></form></td>\n</tr>\n";
+			$content .= "<tr>\n  <td colspan=".$numcols . ' align="right"><form action="' . $this->_insertUrl . '" method="POST"><input type="SUBMIT" value="' . _AM_XBS_MODGEN_INSERT . "\"></form></td>\n</tr>\n";
 		}
 		$content .="</table>\n<!-- End Table Edit Display -->\n";
 		if ($render) {
@@ -355,4 +353,4 @@ class XBS_MODGENTableForm {
 		}
 	}//end function display
 }//end class schedTableForm
-?>
+

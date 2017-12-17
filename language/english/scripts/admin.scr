@@ -33,7 +33,7 @@ define("_AM_{UMODDIR}_MODCONFIG","xoops");
  * If module configuration option = "module" then define the name of the script 
  * to call for module configuration.  This relative to modDir/admin/
  * MUST follow the format _AM_<ModDir>_MODCONFIGURL
- * e.g. define("_AM_{UMODDIR}_MODCONFIGURL","{LMODTAG}_config.inc");
+ * e.g. define("_AM_{UMODDIR}_MODCONFIGURL","{LMODTAG}_config.php");
  * and define a message that is shown to users prior to redirecting to the config page
  * e.g. define("_AM_{UMODDIR}_MODCONFIGREDIRECT","Configuration is done via the CDM system. You will shortly be redirected there.")
  */
