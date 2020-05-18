@@ -1,8 +1,8 @@
-if ( file_exists( XOOPS_ROOT_PATH."/modules/{MODDIR}/header.inc" ) ) {
+if ( file_exists( XOOPS_ROOT_PATH."/modules/{MODDIR}/header.php" ) ) {
 	/**
  	* {UMODTAG} header
  	*/
-    include_once XOOPS_ROOT_PATH."/modules/{MODDIR}/header.inc";
+    include_once XOOPS_ROOT_PATH."/modules/{MODDIR}/header.php";
 } else {
 	die("Unable to load {UMODTAG} header file");
 }

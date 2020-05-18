@@ -1,8 +1,9 @@
-<?php
+<?php declare(strict_types=1);
+
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
-//                       <http://www.xoops.org/>                             //
+//                       <https://xoops.org>                             //
 //  ------------------------------------------------------------------------ //
 //  This program is free software; you can redistribute it and/or modify     //
 //  it under the terms of the GNU General Public License as published by     //
@@ -25,40 +26,39 @@
 //  ------------------------------------------------------------------------ //
 // Author:    Ashley Kitson                                                  //
 // Copyright: (c) 2005, Ashley Kitson
-// URL:       http://xoobs.net			                                     //
-// Project:   The XOOPS Project (http://www.xoops.org/)                      //
+// URL:       http://xoobs.net                                               //
+// Project:   The XOOPS Project (https://xoops.org/)                      //
 // Module:    XBS Module Generator  (ModGen)                                 //
 // ------------------------------------------------------------------------- //
 /**
-* Display system help
-*
-* @author Ashley Kitson http://xoobs.net
-* @copyright 2006 Ashley Kitson, UK
-* @package XBS_MODGEN
-* @subpackage Help
-* @version 1
-* @access private
-*/
+ * Display system help
+ *
+ * @author     Ashley Kitson http://xoobs.net
+ * @copyright  2006 Ashley Kitson, UK
+ * @package    XBS_MODGEN
+ * @subpackage Help
+ * @version    1
+ * @access     private
+ */
 
 /**
-* Do all the declarations etc needed by an admin page
-*/
-include_once "adminheader.inc";
+ * Do all the declarations etc needed by an admin page
+ */
+require_once __DIR__ . '/admin_header.php';
+require_once __DIR__ . '/adminheader.php';
 
 //Display the admin menu
-xoops_module_admin_menu(0,'');
+//xoops_module_admin_menu(0,'');
 
 /**
-* To use this as a template you need to write code to display
-* whatever it is you want displaying between here...
-*/
-include(XBS_MODGEN_PATH."/docs/Modgen_Tutorial.html");
+ * To use this as a template you need to write code to display
+ * whatever it is you want displaying between here...
+ */
+include XBS_MODGEN_PATH . '/docs/Modgen_Tutorial.html';
 
 /**
-* and here.
-*/
+ * and here.
+ */
 
 //And put footer in
 xoops_cp_footer();
-
-?>

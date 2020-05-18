@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 /*  XBS Modgen Module shell generator for Xoops CMS
     Copyright (C) 2006 Ashley Kitson, UK
     admin at xoobs dot net
@@ -11,14 +12,12 @@
 */
 /**
  * XBS Modgen Module shell generator for Xoops CMS
- * 
+ *
  * Non language specific definitions for script generation
- * 
- * @author Ashley Kitson (http://xoobs.net)
- * @copyright 2006 Ashley Kitson, UK
- * @package DEFINITIONS
+ *
+ * @author     Ashley Kitson (http://xoobs.net)
+ * @copyright  2006 Ashley Kitson, UK
+ * @package    DEFINITIONS
  * @subpackage Scripts
- * @access public
- * 
+ * @access     public
  */
-?>
