@@ -45,6 +45,7 @@
  * @global array Form Post variables
  */
 require_once __DIR__ . '/admin_header.php';
+//require_once __DIR__ . '/adminheader.php';
 global $_POST;
 /**
  * @global array User Session variables
@@ -53,7 +54,7 @@ global $_SESSION;
 /**
  * Do all the declarations etc needed by an admin page
  */
-require_once __DIR__ . '/adminheader.php';
+//require_once __DIR__ . '/adminheader.php';
 
 //check to see if we have a selected module to work with
 if (!isset($_SESSION['xbs_modgen_mod'])) {

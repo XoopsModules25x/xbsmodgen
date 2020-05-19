@@ -1,5 +1,8 @@
 <?php declare(strict_types=1);
 
+use XoopsModules\Xbsmodgen;
+use XoopsModules\Xbsmodgen\Form;
+
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
@@ -85,7 +88,7 @@ function checkRequest($pageName)
  *
  * @param int    $id       Internal identifier of object
  * @param string $pageName valid page to request op
- * @param string $hName    name of XBS_MODGENObject handler
+ * @param string $hName    name of Xbsobject handler
  * @return bool true on success
  */
 function adminDelObject($id, $pageName, $hName)
@@ -121,7 +124,7 @@ function adminDelObject($id, $pageName, $hName)
  */
 function adminEditModule($modid = 0)
 {
-    $objHandler = xoops_getModuleHandler('XBS_MODGENModule');
+    $objHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Module');
 
     if (0 != $modid) {
         $obj = $objHandler->get($modid);
@@ -129,7 +132,7 @@ function adminEditModule($modid = 0)
         $obj = $objHandler->create();
     }
 
-    $adminEditForm = new XBS_MODGENEditForm($obj, _AM_XBS_MODGEN_MODEDITFORM, 'admenu1.php', 'xbs_modgen_mod,lastgen', 'id', 'xbs_modgen_mod');
+    $adminEditForm = new Form\FormEdit($obj, _AM_XBS_MODGEN_MODEDITFORM, 'admenu1.php', 'xbs_modgen_mod,lastgen', 'id', 'xbs_modgen_mod');
 
     $adminEditForm->display();
 }//end function
@@ -160,7 +163,7 @@ function adminSaveModule($data)
 
         //create module object
 
-        $objHandler = xoops_getModuleHandler('XBS_MODGENModule');
+        $objHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Module');
 
         if (0 != $id) {
             $obj = $objHandler->get($id);
@@ -211,7 +214,7 @@ function adminSelectModule()
 
     // else allow user to select a Module
 
-    $objHandler = xoops_getModuleHandler('XBS_MODGENModule');
+    $objHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Module');
 
     if (0 == $objHandler->countModules()) {
         adminEditModule();
@@ -224,11 +227,11 @@ function adminSelectModule()
 
         // Get data and assign to form
 
-        $fmod = new XBS_MODGENFormSelectModule(_AM_XBS_MODGEN_SELMOD, 'xbs_modgen_mod', $mod_choice, 1);
+        $fmod = new Form\FormSelectModule(_AM_XBS_MODGEN_SELMOD, 'xbs_modgen_mod', $mod_choice, 1);
 
-        $ftray = new XBS_MODGENElementTray(_AM_XBS_MODGEN_BUTTONTRAY, true, false, true, false, false, true); //button tray
+        $ftray = new Form\FormElementTray(_AM_XBS_MODGEN_BUTTONTRAY, true, false, true, false, false, true); //button tray
 
-        $form = new XoopsThemeForm(_AM_XBS_MODGEN_MODFORM, 'modselform', 'admenu1.php');
+        $form = new \XoopsThemeForm(_AM_XBS_MODGEN_MODFORM, 'modselform', 'admenu1.php');
 
         $form->addElement($fmod, true);
 
@@ -247,7 +250,7 @@ function adminReviewModule($modid)
 {
     //Module global parameters
 
-    $moduleHandler = xoops_getModuleHandler('XBS_MODGENModule');
+    $moduleHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Module');
 
     if (!$module = $moduleHandler->get($modid)) {
         redirect_header(XBS_MODGEN_URL . '/admin/admindex.php', 5, sprintf(_AM_XBS_MODGEN_ADMINERR6, $modid));
@@ -281,7 +284,7 @@ function adminReviewModule($modid)
 
     //module configs
 
-    $cfgHandler = xoops_getModuleHandler('XBS_MODGENConfig');
+    $cfgHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Config');
 
     if ($objs = $cfgHandler->getAllConfigs($modid)) {
         $output .= '<h3>' . _AM_XBS_MODGEN_RVW_MODCFGS . '</h3><table>';
@@ -297,7 +300,7 @@ function adminReviewModule($modid)
 
     // -- objects --
 
-    $objHandler = xoops_getModuleHandler('XBS_MODGENObject');
+    $objHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Xbsobject');
 
     //module tables
 
@@ -394,10 +397,10 @@ function adminGenerateModule($modid, $requestUrl)
 {
     //check that requesting script was ours
 
-    $requestFName = basename($requestUrl);
+    $requestFName = basename((string)$requestUrl);
 
     if ($requestFName = 'admenu7.php') {
-        $moduleHandler = xoops_getModuleHandler('XBS_MODGENModule');
+        $moduleHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Module');
 
         if ($mod = $moduleHandler->get($modid)) {
             $ret = $mod->generate();
@@ -436,7 +439,7 @@ function adminGenerateModule($modid, $requestUrl)
  */
 function adminEditConfig($modid, $cfgid = 0)
 {
-    $objHandler = xoops_getModuleHandler('XBS_MODGENConfig');
+    $objHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Config');
 
     if (0 != $cfgid) {
         $obj = $objHandler->get($cfgid);
@@ -446,7 +449,7 @@ function adminEditConfig($modid, $cfgid = 0)
         $obj->setVar('modid', $modid);
     }
 
-    $adminEditForm = new XBS_MODGENEditForm($obj, _AM_XBS_MODGEN_CFGEDITFORM, 'admenu2.php', 'modid,id');
+    $adminEditForm = new Form\FormEdit($obj, _AM_XBS_MODGEN_CFGEDITFORM, 'admenu2.php', 'modid,id');
 
     $adminEditForm->display();
 }//end function
@@ -477,7 +480,7 @@ function adminSelectConfig()
 
     // else allow user to select a config item
 
-    $cfgHandler = xoops_getModuleHandler('XBS_MODGENConfig');
+    $cfgHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Config');
 
     if (0 == $cfgHandler->countConfigs($_SESSION['xbs_modgen_mod'])) {
         adminEditConfig($_SESSION['xbs_modgen_mod']);
@@ -488,7 +491,7 @@ function adminSelectConfig()
 
         //Table name
 
-        $moduleHandler = xoops_getModuleHandler('XBS_MODGENModule');
+        $moduleHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Module');
 
         $mod = $moduleHandler->get($_SESSION['xbs_modgen_mod']);
 
@@ -496,7 +499,7 @@ function adminSelectConfig()
 
         //create table form
 
-        $fcfg = new XBS_MODGENTableForm($cols, $tname, true, XBS_MODGEN_URL . '/admin/admenu2.php?op=new', XBS_MODGEN_URL . '/admin/admenu2.php?op=edit&id=', XBS_MODGEN_URL . '/admin/admenu2.php?op=del&id=');
+        $fcfg = new Form\FormTable($cols, $tname, true, XBS_MODGEN_URL . '/admin/admenu2.php?op=new', XBS_MODGEN_URL . '/admin/admenu2.php?op=edit&id=', XBS_MODGEN_URL . '/admin/admenu2.php?op=del&id=');
 
         //add data rows to it
 
@@ -540,7 +543,7 @@ function adminSaveConfig($data)
 
         //create config item object
 
-        $objHandler = xoops_getModuleHandler('XBS_MODGENConfig');
+        $objHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Config');
 
         if (0 != $id) {
             $obj = $objHandler->get($id);
@@ -597,7 +600,7 @@ function adminDelConfig($id, $requesturl)
  */
 function adminEditObject($modid, $objid, $frmTitle, $frmNames, $retScr, $objType)
 {
-    $objHandler = xoops_getModuleHandler('XBS_MODGENObject');
+    $objHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Xbsobject');
 
     if (0 != $objid) {
         $obj = $objHandler->get($objid);
@@ -626,7 +629,7 @@ function adminEditObject($modid, $objid, $frmTitle, $frmNames, $retScr, $objType
             break;
     }
 
-    $adminEditForm = new XBS_MODGENEditForm($obj, $frmTitle, $retScr, 'modid,id,objtype,objloc');
+    $adminEditForm = new Form\FormEdit($obj, $frmTitle, $retScr, 'modid,id,objtype,objloc');
 
     $adminEditForm->display();
 }//end function
@@ -669,7 +672,7 @@ function adminSelectTable()
 
     // else allow user to select a table
 
-    $objHandler = xoops_getModuleHandler('XBS_MODGENObject');
+    $objHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Xbsobject');
 
     if (0 == $objHandler->countTypeObjects($_SESSION['xbs_modgen_mod'], 'table')) {
         adminEditTable($_SESSION['xbs_modgen_mod']);
@@ -680,7 +683,7 @@ function adminSelectTable()
 
         //Table name
 
-        $moduleHandler = xoops_getModuleHandler('XBS_MODGENModule');
+        $moduleHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Module');
 
         $mod = $moduleHandler->get($_SESSION['xbs_modgen_mod']);
 
@@ -688,7 +691,7 @@ function adminSelectTable()
 
         //create table form
 
-        $fcfg = new XBS_MODGENTableForm($cols, $tname, true, XBS_MODGEN_URL . '/admin/admenu3.php?op=new', XBS_MODGEN_URL . '/admin/admenu3.php?op=edit&id=', XBS_MODGEN_URL . '/admin/admenu3.php?op=del&id=');
+        $fcfg = new Form\FormTable($cols, $tname, true, XBS_MODGEN_URL . '/admin/admenu3.php?op=new', XBS_MODGEN_URL . '/admin/admenu3.php?op=edit&id=', XBS_MODGEN_URL . '/admin/admenu3.php?op=del&id=');
 
         //add data rows to it
 
@@ -732,7 +735,7 @@ function adminSaveTable($data)
 
         //create config item object
 
-        $objHandler = xoops_getModuleHandler('XBS_MODGENObject');
+        $objHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Xbsobject');
 
         if (0 != $id) {
             $obj = $objHandler->get($id);
@@ -770,7 +773,7 @@ function adminSaveTable($data)
  */
 function adminDelTable($id)
 {
-    return adminDelObject($id, 'admenu3.php', 'XBS_MODGENObject');
+    return adminDelObject($id, 'admenu3.php', 'Xbsobject');
 }//end function
 
 /**
@@ -842,7 +845,7 @@ function adminSelectMenu($menuType)
 
     // else allow user to select a menu
 
-    $objHandler = xoops_getModuleHandler('XBS_MODGENObject');
+    $objHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Xbsobject');
 
     if (0 == $objHandler->countTypeObjects($_SESSION['xbs_modgen_mod'], $menuType)) {
         adminEditMenu($_SESSION['xbs_modgen_mod'], $menuType);
@@ -853,7 +856,7 @@ function adminSelectMenu($menuType)
 
         //Table name
 
-        $moduleHandler = xoops_getModuleHandler('XBS_MODGENModule');
+        $moduleHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Module');
 
         $mod = $moduleHandler->get($_SESSION['xbs_modgen_mod']);
 
@@ -861,7 +864,7 @@ function adminSelectMenu($menuType)
 
         //create menu selection list form
 
-        $fcfg = new XBS_MODGENTableForm($cols, $tname, true, XBS_MODGEN_URL . '/admin/' . $pgName . '?op=new', XBS_MODGEN_URL . '/admin/' . $pgName . '?op=edit&id=', XBS_MODGEN_URL . '/admin/' . $pgName . '?op=del&id=');
+        $fcfg = new Form\FormTable($cols, $tname, true, XBS_MODGEN_URL . '/admin/' . $pgName . '?op=new', XBS_MODGEN_URL . '/admin/' . $pgName . '?op=edit&id=', XBS_MODGEN_URL . '/admin/' . $pgName . '?op=del&id=');
 
         //add data rows to it
 
@@ -916,7 +919,7 @@ function adminSaveMenu($data, $menuType)
 
         //create config item object
 
-        $objHandler = xoops_getModuleHandler('XBS_MODGENObject');
+        $objHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Xbsobject');
 
         if (0 != $id) {
             $obj = $objHandler->get($id);
@@ -965,7 +968,7 @@ function adminDelMenu($id, $menuType)
         redirect_header(XBS_MODGEN_URL . '/admin/adminindex.php', 1, sprintf(_AM_XBS_MODGEN_ADMINERR9, 'adminDelMenu()'));
     }
 
-    return adminDelObject($id, $pgName, 'XBS_MODGENObject');
+    return adminDelObject($id, $pgName, 'Xbsobject');
 }//end function
 
 /**
@@ -1006,7 +1009,7 @@ function adminSelectBlock()
 
     // else allow user to select a menu
 
-    $objHandler = xoops_getModuleHandler('XBS_MODGENObject');
+    $objHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Xbsobject');
 
     if (0 == $objHandler->countTypeObjects($_SESSION['xbs_modgen_mod'], 'bscript')) {
         adminEditBlock($_SESSION['xbs_modgen_mod']);
@@ -1017,7 +1020,7 @@ function adminSelectBlock()
 
         //Table name
 
-        $moduleHandler = xoops_getModuleHandler('XBS_MODGENModule');
+        $moduleHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Module');
 
         $mod = $moduleHandler->get($_SESSION['xbs_modgen_mod']);
 
@@ -1025,7 +1028,7 @@ function adminSelectBlock()
 
         //create block selection list form
 
-        $fcfg = new XBS_MODGENTableForm($cols, $tname, true, XBS_MODGEN_URL . '/admin/' . $pgName . '?op=new', XBS_MODGEN_URL . '/admin/' . $pgName . '?op=edit&id=', XBS_MODGEN_URL . '/admin/' . $pgName . '?op=del&id=');
+        $fcfg = new Form\FormTable($cols, $tname, true, XBS_MODGEN_URL . '/admin/' . $pgName . '?op=new', XBS_MODGEN_URL . '/admin/' . $pgName . '?op=edit&id=', XBS_MODGEN_URL . '/admin/' . $pgName . '?op=del&id=');
 
         //add data rows to it
 
@@ -1069,7 +1072,7 @@ function adminSaveBlock($data)
 
         //create config item object
 
-        $objHandler = xoops_getModuleHandler('XBS_MODGENObject');
+        $objHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Xbsobject');
 
         if (0 != $id) {
             $obj = $objHandler->get($id);
@@ -1107,5 +1110,5 @@ function adminSaveBlock($data)
  */
 function adminDelBlock($id)
 {
-    return adminDelObject($id, 'admenu6.php', 'XBS_MODGENObject');
+    return adminDelObject($id, 'admenu6.php', 'Xbsobject');
 }//end function

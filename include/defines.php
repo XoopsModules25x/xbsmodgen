@@ -34,7 +34,7 @@ global $xoopsConfig;
 /**
  * The module directory name
  */
-define('XBS_MODGEN_DIR', 'xbs_modgen');
+define('XBS_MODGEN_DIR', 'xbsmodgen');
 
 /**#@+
  * Constants for XBS_MODGEN objects
@@ -81,7 +81,7 @@ define('XBS_MODGEN_TBL_CNF', 'xbs_modgen_config');
 
 /**#@+
  * Constants for ModgenObject variable initialisation
- * and used by XBS_MODGENEditForm to determine field type to display
+ * and used by FormEdit to determine field type to display
  */
 
 define('XBS_FRM_CHECKBOX', 1);

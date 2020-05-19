@@ -45,6 +45,7 @@
  * @global array Form Post variables
  */
 require_once __DIR__ . '/admin_header.php';
+//require_once __DIR__ . '/adminheader.php';
 global $_POST;
 /**
  * @global array User Session variables

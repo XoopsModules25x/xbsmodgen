@@ -331,9 +331,9 @@ require_once __DIR__ . '/functions.php';
 /**
  * CDM definitions
  */
-require_once XOOPS_ROOT_PATH . '/modules/xbs_cdm/language/english/main.php';
+require_once XOOPS_ROOT_PATH . '/modules/xbscdm/language/english/main.php';
 
 /**
  * Call the admin page header function
  */
-xoops_cp_header();
+//xoops_cp_header();

@@ -38,29 +38,29 @@ if (file_exists(__DIR__ . '/../../mainfile.php')) {
 }
 
 //Load CDM definitions
-if (file_exists(XOOPS_ROOT_PATH . '/modules/xbs_cdm/include/defines.php')) {
+if (file_exists(XOOPS_ROOT_PATH . '/modules/xbscdm/include/defines.php')) {
     /**
      * Require Code Data Management module definitions
      */
 
-    require_once XOOPS_ROOT_PATH . '/modules/xbs_cdm/include/defines.php';
-} elseif (file_exists(XOOPS_ROOT_PATH . '/modules/xbs_cdm/include/defines.php')) {
+    require_once XOOPS_ROOT_PATH . '/modules/xbscdm/include/defines.php';
+} elseif (file_exists(XOOPS_ROOT_PATH . '/modules/xbscdm/include/defines.php')) {
     /**
      * @ignore
      */
 
-    require_once XOOPS_ROOT_PATH . '/modules/xbs_cdm/include/defines.php';
+    require_once XOOPS_ROOT_PATH . '/modules/xbscdm/include/defines.php';
 } else {
     die('Unable to locate CDM Definitions');
 }
 
 //Load XBS_MODGEN definitions
-if (file_exists(XOOPS_ROOT_PATH . '/modules/xbs_modgen/include/defines.php')) {
+if (file_exists(XOOPS_ROOT_PATH . '/modules/xbsmodgen/include/defines.php')) {
     /**
      * XBS_Modgen non language specific constant definitions
      */
 
-    require_once XOOPS_ROOT_PATH . '/modules/xbs_modgen/include/defines.php';
+    require_once XOOPS_ROOT_PATH . '/modules/xbsmodgen/include/defines.php';
 } else {
     die('Unable to locate ModGen Definitions');
 }
@@ -76,13 +76,4 @@ if (file_exists(XBS_MODGEN_PATH . '/include/functions.php')) {
     die('Unable to locate ModGen Common Functions');
 }
 
-//Load form elements
-if (file_exists(XBS_MODGEN_PATH . '/class/class.xbs_modgen.form.php')) {
-    /**
-     * XBS_MODGEN Form elements
-     */
 
-    require_once XBS_MODGEN_PATH . '/class/class.xbs_modgen.form.php';
-} else {
-    die('Unable to locate ModGen Form Elements');
-}

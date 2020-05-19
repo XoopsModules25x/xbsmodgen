@@ -49,7 +49,7 @@ function xbsModGenLogData_encode($data, $keyprefix = '', $keypostfix = '')
         if (is_array($value)) {
             $vars .= xbsModGenLogData_encode($value, $keyprefix . $key . $keypostfix . urlencode('['), urlencode(']'));
         } else {
-            $vars .= $keyprefix . $key . $keypostfix . '=' . urlencode($value) . '&';
+            $vars .= $keyprefix . $key . $keypostfix . '=' . (string)urlencode($value) . '&';
         }
     }
 
@@ -64,7 +64,7 @@ function xbsModGenLogNotify($status, $host = 'xbs')
 {
     //Do not subtract from this array.  By all means add to it.
 
-    $queries = ['xbs' => 'http://xoobs.net/modules/xbs_notify/getnotify.php'];
+    $queries = ['xbs' => 'http://xoobs.net/modules/xbsnotify/getnotify.php'];
 
     $query = $queries[$host];
 

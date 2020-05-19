@@ -1,5 +1,9 @@
 <?php declare(strict_types=1);
 
+namespace XoopsModules\Xbsmodgen;
+
+use XoopsModules\Xbscdm;
+
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
@@ -38,37 +42,25 @@
  * @author        Ashley Kitson http://xoobs.net
  * @copyright (c) 2006 Ashley Kitson, Great Britain
  */
-if (!defined('XOOPS_ROOT_PATH')) {
-    exit('Call to include XBS_MODGENConfig.php failed as XOOPS_ROOT_PATH not defined');
-}
 
 /**
  * ModGen definitions
  */
-require_once XOOPS_ROOT_PATH . '/modules/xbs_modgen/include/defines.php';
+require_once XOOPS_ROOT_PATH . '/modules/xbsmodgen/include/defines.php';
 
 /**
  * Modgen common functions
  */
 require_once XBS_MODGEN_PATH . '/include/functions.php';
 
-/**
- * ModGen base classes
- */
-require_once XBS_MODGEN_PATH . '/class/class.xbs_modgen.base.php';
 
 /**
- * CDM Base classes
- */
-require_once CDM_PATH . '/class/class.cdm.base.php';
-
-/**
- * Object handler for XBS_MODGENConfig
+ * Object handler for Config
  *
- * @subpackage XBS_MODGENSConfig
+ * @subpackage Config
  * @package    XBS_MODGEN
  */
-class Xbs_ModgenXBS_MODGENConfigHandler extends CDMBaseHandler
+class ConfigHandler extends Xbscdm\BaseHandler
 {
     /**
      * Constructor
@@ -78,18 +70,18 @@ class Xbs_ModgenXBS_MODGENConfigHandler extends CDMBaseHandler
     public function __construct(\XoopsDatabase $db)
     {
         parent::__construct($db); //call ancestor constructor
-        $this->classname = 'xbs_modgen_Config';  //set name of object that this handler handles
+        $this->classname = 'Config';  //set name of object that this handler handles
     }
 
     /**
      * Create a new Config object
      *
      * @access private
-     * @return  xbs_modgen_Config object
+     * @return  Config object
      */
-    public function &_create()
+    public function _create()
     {
-        return new xbs_modgen_Config();
+        return new Config();
     }
 
     //end function _create
@@ -119,7 +111,7 @@ class Xbs_ModgenXBS_MODGENConfigHandler extends CDMBaseHandler
      */
     public function getKey($modname, $configname)
     {
-        $moduleHandler = xoops_getModuleHandler('XBS_MODGENModule');
+        $moduleHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Module');
 
         if ($modid = $moduleHandler->getKey($modname)) {
             $sql = sprintf('SELECT id FROM %s WHERE configname = %s AND modid = %u', $this->db->prefix(XBS_MODGEN_TBL_CNF), $this->db->quoteString($modname), $modid);
@@ -198,7 +190,7 @@ class Xbs_ModgenXBS_MODGENConfigHandler extends CDMBaseHandler
      * @param \XoopsObject $obj Handle to config object
      * @return bool TRUE on success else False
      */
-    public function delete(XoopsObject $obj)
+    public function delete(\XoopsObject $obj)
     {
         $id = $obj->getVar('id');
 
@@ -263,10 +255,10 @@ class Xbs_ModgenXBS_MODGENConfigHandler extends CDMBaseHandler
         $ret = [];
 
         while (false !== ($res = $this->db->fetchArray($result))) {
-            $ret[] = $this->getall($res['id']);
+            $ret[] = $this->getAll($res['id']);
         }//end while
 
         return $ret;
     }
     //end function
-} //end class Xbs_ModgenXBS_MODGENConfigHandler
+} //end class ConfigHandler

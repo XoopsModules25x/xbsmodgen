@@ -52,7 +52,7 @@ require_once __DIR__ . '/adminheader.php';
 xoops_module_admin_menu(0, _AM_XBS_MODGEN_ADMENU0);
 
 //get a module handler
-$moduleHandler = xoops_getModuleHandler('XBS_MODGENModule');
+$moduleHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Module');
 //get current module name
 if (isset($_SESSION['xbs_modgen_mod'])) {
     $mod = $moduleHandler->get($_SESSION['xbs_modgen_mod']);

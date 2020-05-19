@@ -47,7 +47,7 @@
 /**
  * Include module defines
  */
-require_once XOOPS_ROOT_PATH . '/modules/xbs_modgen/include/defines.php';
+require_once XOOPS_ROOT_PATH . '/modules/xbsmodgen/include/defines.php';
 
 /**
  * function xoops_module_update_xbs_modgen

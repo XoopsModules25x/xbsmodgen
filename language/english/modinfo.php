@@ -21,7 +21,7 @@ define('_MI_XBS_MODGEN_NAME', 'XBS Module Generator');
 /**
  *  A brief description of this module
  */
-define('_MI_XBS_MODGEN_DESC', 'Creates a new Xoops module shell.  Takes away a lot of tedious work for mod devs.');
+define('_MI_XBS_MODGEN_DESC', 'Creates a new \Xoops module shell.  Takes away a lot of tedious work for mod devs.');
 
 /**#@+
  * Configuration item names and descriptions

@@ -1,5 +1,9 @@
 <?php declare(strict_types=1);
 
+namespace XoopsModules\Xbsmodgen;
+
+use XoopsModules\Xbscdm;
+
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
@@ -38,37 +42,25 @@
  * @author        Ashley Kitson http://xoobs.net
  * @copyright (c) 2006 Ashley Kitson, Great Britain
  */
-if (!defined('XOOPS_ROOT_PATH')) {
-    exit('Call to include XBS_MODGENModule.php failed as XOOPS_ROOT_PATH not defined');
-}
 
 /**
  * ModGen definitions
  */
-require_once XOOPS_ROOT_PATH . '/modules/xbs_modgen/include/defines.php';
+require_once XOOPS_ROOT_PATH . '/modules/xbsmodgen/include/defines.php';
 
 /**
  * Modgen common functions
  */
 require_once XBS_MODGEN_PATH . '/include/functions.php';
 
-/**
- * ModGen base classes
- */
-require_once XBS_MODGEN_PATH . '/class/class.xbs_modgen.base.php';
 
 /**
- * CDM Base classes
- */
-require_once CDM_PATH . '/class/class.cdm.base.php';
-
-/**
- * Object handler for XBS_MODGENModule
+ * Object handler for Module
  *
- * @subpackage XBS_MODGENModule
+ * @subpackage Module
  * @package    XBS_MODGEN
  */
-class Xbs_ModgenXBS_MODGENModuleHandler extends CDMBaseHandler
+class ModuleHandler extends Xbscdm\BaseHandler
 {
     /**
      * Constructor
@@ -78,18 +70,18 @@ class Xbs_ModgenXBS_MODGENModuleHandler extends CDMBaseHandler
     public function __construct(\XoopsDatabase $db)
     {
         parent::__construct($db); //call ancestor constructor
-        $this->classname = 'xbs_modgen_Module';  //set name of object that this handler handles
+        $this->classname = 'Module';  //set name of object that this handler handles
     }
 
     /**
      * Create a new module object
      *
      * @access private
-     * @return  xbs_modgen_Module object
+     * @return  Module object
      */
-    public function &_create()
+    public function _create()
     {
-        return new xbs_modgen_Module();
+        return new Module();
     }
 
     //end function _create
@@ -211,7 +203,7 @@ class Xbs_ModgenXBS_MODGENModuleHandler extends CDMBaseHandler
      *
      * @param \XoopsObject $obj
      */
-    public function delete(XoopsObject $obj)
+    public function delete(\XoopsObject $obj)
     {
         $id = $obj->getVar('id');
 
@@ -294,4 +286,4 @@ class Xbs_ModgenXBS_MODGENModuleHandler extends CDMBaseHandler
         return $ret;
     }
     //end function getLastGen
-} //end class Xbs_ModgenXBS_MODGENModuleHandler
+} //end class ModuleHandler

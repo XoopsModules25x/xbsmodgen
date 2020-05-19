@@ -20,9 +20,9 @@ define('_MD_XBS_MODGEN_MSG2', 'No modules have yet been generated');
 
 // Error string constants
 define('_MD_XBS_MODGEN_ERR_1', 'No data for XBS_MODGENobject indexed by %s');
-define('_MD_XBS_MODGEN_ERR_2', 'Unable to instantiate XBS_MODGENObject %s');
+define('_MD_XBS_MODGEN_ERR_2', 'Unable to instantiate Xbsobject %s');
 define('_MD_XBS_MODGEN_ERR_3', 'Unable to reload. Given class is %s. Expected %s');
-define('_MD_XBS_MODGEN_ERR_4', 'Unable to reload XBS_MODGENObject with null key');
+define('_MD_XBS_MODGEN_ERR_4', 'Unable to reload Xbsobject with null key');
 define('_MD_XBS_MODGEN_ERR_5', 'You must be logged in to edit records');
 define('_MD_XBS_MODGEN_ERR_6', 'is not a valid value for a code set name');
 
