@@ -8,11 +8,11 @@ define('{UMODTAG}_BLOCK{!COUNTER}_DEFINED',true);
 /**
  * {UMODTAG} constant definitions
  */
-include_once(XOOPS_ROOT_PATH."/modules/{MODDIR}/include/defines.inc");
+include_once(XOOPS_ROOT_PATH."/modules/{MODDIR}/include/defines.php");
 /**
  * {UMODTAG} function declarations
  */
-include_once(XOOPS_ROOT_PATH."/modules/{MODDIR}/include/functions.inc");
+include_once(XOOPS_ROOT_PATH."/modules/{MODDIR}/include/functions.php");
 
 /**
 * Function: Create display data for block 
@@ -48,7 +48,7 @@ function b_{LMODTAG}_block{!COUNTER}_edit($options) {
 	* rather than hand coding the html.	
 	* e.g.
 	if (!isset($options[0])) { $options[0] = 0; }
-	$s = new XoopsFormCheckBox('', 'options[]', $options[0]);
+	$s = new \XoopsFormCheckBox('', 'options[]', $options[0]);
 	$s->addOption('1','Yes');
 	$fld[0] = $s->render();
 	unset($s);

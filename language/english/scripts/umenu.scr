@@ -9,7 +9,7 @@ global $xoopsOption,$xoopsUser,$xoopsTpl;
 /**
  * MUST include our module page header
  */
-require("header.inc");
+require("header.php");
 
 //Set your page template here, before including header,php
 $xoopsOption['template_main'] = 'mytemplate.tpl';	

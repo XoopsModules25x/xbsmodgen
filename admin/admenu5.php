@@ -1,8 +1,9 @@
-<?php
+<?php declare(strict_types=1);
+
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
-//                       <http://www.xoops.org/>                             //
+//                       <https://xoops.org>                             //
 //  ------------------------------------------------------------------------ //
 //  This program is free software; you can redistribute it and/or modify     //
 //  it under the terms of the GNU General Public License as published by     //
@@ -25,72 +26,78 @@
 //  ------------------------------------------------------------------------ //
 // Author:    Ashley Kitson                                                  //
 // Copyright: (c) 2006, Ashley Kitson
-// URL:       http://xoobs.net			                                     //
-// Project:   The XOOPS Project (http://www.xoops.org/)                      //
+// URL:       http://xoobs.net                                               //
+// Project:   The XOOPS Project (https://xoops.org/)                      //
 // Module:    XBS Module Generator (XBS_MODGEN)                              //
 // ------------------------------------------------------------------------- //
 /**
-* User Menu item definition
-*
-* @author Ashley Kitson http://xoobs.net
-* @copyright 2006 Ashley Kitson, UK
-* @package XBS_MODGEN
-* @subpackage Admin
-* @version 1
-* @access private
-*/
+ * User Menu item definition
+ *
+ * @author     Ashley Kitson http://xoobs.net
+ * @copyright  2006 Ashley Kitson, UK
+ * @package    XBS_MODGEN
+ * @subpackage Admin
+ * @version    1
+ * @access     private
+ */
 
 /**
-* Do all the declarations etc needed by an admin page
-*/
-include_once "adminheader.inc";
+ * Do all the declarations etc needed by an admin page
+ */
+require_once __DIR__ . '/admin_header.php';
+//require_once __DIR__ . '/adminheader.php';
 
 //check to see if we have a selected module to work with
 if (!isset($_SESSION['xbs_modgen_mod'])) {
-	//redirect to module choosing page
-	redirect_header(XBS_MODGEN_URL."/admin/admenu1.php",1,_AM_XBS_MODGEN_ADMINMSG3);
+    //redirect to module choosing page
+
+    redirect_header(XBS_MODGEN_URL . '/admin/admenu1.php', 1, _AM_XBS_MODGEN_ADMINMSG3);
 }
 //Display the admin menu
-xoops_module_admin_menu(5,_AM_XBS_MODGEN_ADMENU5);
+//xoops_module_admin_menu(5,_AM_XBS_MODGEN_ADMENU5);
 
 /**
  * admin menu common processing
  */
-include("common.inc");
+require __DIR__ . '/common.php';
 
 if ($edit) { //User has selected a block to edit
-	adminEditMenu($_SESSION['xbs_modgen_mod'],"umenu",$id); 
-	
-} elseif ($insert) { 
-	//create a new block item
-	adminEditMenu($_SESSION['xbs_modgen_mod'],"umenu");
-	
-} elseif ($save) { 
-	//user has edited or created a block so save it
-	$ret = adminSaveMenu($clean,"umenu");
-	if ($ret > 0) {
-		redirect_header(XBS_MODGEN_URL."/admin/admenu5.php",1,_AM_XBS_MODGEN_ADMINMSG4);
-	} else {
-		//should never get here as redirection occurs
-		// in adminSaveMenu on error
-		die('Oops - should not have got here #1 - admenu5.php');
-	}
+    adminEditMenu($_SESSION['xbs_modgen_mod'], 'umenu', $id);
+} elseif ($insert) {
+    //create a new block item
+
+    adminEditMenu($_SESSION['xbs_modgen_mod'], 'umenu');
+} elseif ($save) {
+    //user has edited or created a block so save it
+
+    $ret = adminSaveMenu($clean, 'umenu');
+
+    if ($ret > 0) {
+        redirect_header(XBS_MODGEN_URL . '/admin/admenu5.php', 1, _AM_XBS_MODGEN_ADMINMSG4);
+    } else {
+        //should never get here as redirection occurs
+
+        // in adminSaveMenu on error
+
+        die('Oops - should not have got here #1 - admenu5.php');
+    }
 } elseif ($del) {
-	if (adminDelMenu($id,'umenu')) {
-		redirect_header(XBS_MODGEN_URL."/admin/admenu5.php",1,_AM_XBS_MODGEN_ADMINMSG5);
-	} else {
-		//should never get here as redirection occurs
-		// in adminDelMenu on error
-		die('Oops - should not have got here #2 - admenu5.php');
-	}
-} elseif ($cancel) { 
-	redirect_header(XBS_MODGEN_URL."/admin/admenu5.php",1,_AM_XBS_MODGEN_ADMINERR1);
-	
-} else { 
-	//Present a list of menus for the module to select to work with
-	adminSelectMenu("umenu");
+    if (adminDelMenu($id, 'umenu')) {
+        redirect_header(XBS_MODGEN_URL . '/admin/admenu5.php', 1, _AM_XBS_MODGEN_ADMINMSG5);
+    } else {
+        //should never get here as redirection occurs
+
+        // in adminDelMenu on error
+
+        die('Oops - should not have got here #2 - admenu5.php');
+    }
+} elseif ($cancel) {
+    redirect_header(XBS_MODGEN_URL . '/admin/admenu5.php', 1, _AM_XBS_MODGEN_ADMINERR1);
+} else {
+    //Present a list of menus for the module to select to work with
+
+    adminSelectMenu('umenu');
 } //end if
 
 //And put footer in
 xoops_cp_footer();
-?>

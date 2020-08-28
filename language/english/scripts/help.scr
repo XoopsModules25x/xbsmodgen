@@ -2,7 +2,7 @@
 /**
 * Do all the declarations etc needed by an admin page
 */
-include_once "adminheader.inc";
+include_once "adminheader.php";
 
 //Display the admin menu
 xoops_module_admin_menu(0,'Help');

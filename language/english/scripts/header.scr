@@ -14,21 +14,21 @@ if (file_exists("../../mainfile.php")) {
 }
 
 //Load {UMODTAG} definitions
-if (file_exists(XOOPS_ROOT_PATH."/modules/{MODDIR}/include/defines.inc")) {
+if (file_exists(XOOPS_ROOT_PATH."/modules/{MODDIR}/include/defines.php")) {
 	/**
 	 * {UMODTAG} non language specific constant definitions
 	 */
-	require_once(XOOPS_ROOT_PATH."/modules/{MODDIR}/include/defines.inc");
+	require_once(XOOPS_ROOT_PATH."/modules/{MODDIR}/include/defines.php");
 } else {
 	die("Unable to locate {UMODTAG} Definitions");
 }
 
 //Load {UMODTAG} functions
-if (file_exists({UMODTAG}_PATH."/include/functions.inc")) {
+if (file_exists({UMODTAG}_PATH."/include/functions.php")) {
 	/**
 	 * XBS_Modgen common functions
 	 */
-	require_once({UMODTAG}_PATH."/include/functions.inc");
+	require_once({UMODTAG}_PATH."/include/functions.php");
 } else {
 	die("Unable to locate {UMODTAG} Common Functions");
 }
