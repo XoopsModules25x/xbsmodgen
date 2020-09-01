@@ -1,9 +1,43 @@
 <div id="help-template" class="outer">
-    <{include file=$smarty.const._MI_XBSVAT_HELP_HEADER}>
+    <{include file=$smarty.const._MI_XBSMODGEN_HELP_HEADER}>
 
     <h4 class="odd">DESCRIPTION</h4> <br>
 
-    <p class="even">This module is ....<br> <br>
+    <p class="even">This module writes a complete module skeleton for you and enables you to setup the user side and admin side pages and menus, configuration items and underlying data tables. <br> <br>
+     You have to provide the page logic but you are safe in the knowledge that you are writing in a secure framework as used by all XBS modules.
+        <br> <br>
+        Features:
+        <br> <br>
+    <ul>
+        <li>Form driven entry of all information required to create module</li>
+        <li>Setting up of following module items</li>
+        <li>Name, tag and directory information&nbsp; </li>
+        <li>Author, language and country information&nbsp; </li>
+        <li>Module configuration items&nbsp; </li>
+        <li>MySQL table creation&nbsp; </li>
+        <li>Admin side and user side menu and pages&nbsp; </li>
+        <li>Shell functions for module installation, update and delete&nbsp; </li>
+        <li>Shell functions for search, comments and notification&nbsp; </li>
+        <li>Framework to include common function in every page&nbsp; </li>
+        <li>Structured approach to including language specific and non language specific constant defines in every page&nbsp; </li>
+        <li>Shell page for every user and admin menu option&nbsp; </li>
+        <li>Shell page for admin help page&nbsp; </li>
+        <li>Shell scriopts for block definitions&nbsp; </li>
+        <li>Admin menu in XBS module style allowing redirection to config page, home page, support site, documentation page and donations site&nbsp; </li>
+        <li>One click module generation </li>
+    </ul>
+
+        <br> <br>
+
+    More Help information: <a href="<{$xoops_url}>/modules/<{$smarty.const._MI_XBSMODGEN_DIRNAME}>/admin/help.php" target="_blank"> XBS Docs</a>
+    <br><br>
+    </p>
+
+    <h4 class="odd"><span style="color: #FF0000; ">NEW: </span>CLASS &amp; FUNCTIONS API</h4><br>
+    <p class="even">
+        For <strong> Class and Function definitions </strong>  see: <a href="<{$xoops_url}>/modules/<{$smarty.const._MI_XBSMODGEN_DIRNAME}>/docu/index.html" TARGET="_blank">XBS MODGEN Class Documentation </a>
+    <br><br>
+
     </p>
 
     <h4 class="odd">INSTALL/UNINSTALL</h4>
