@@ -41,23 +41,23 @@ class Config extends ModgenObject
 {
     public function __construct()
     {
-        $this->initVar('modid', XOBJ_DTYPE_INT, null, true, null, null, _AM_XBS_MODGEN_TBL_CFGMODID, XBS_FRM_TEXTBOX, '10', XBS_PAT_INT);
+        $this->initVar('modid', XOBJ_DTYPE_INT, null, true, null, null, _AM_XBSMODGEN_TBL_CFGMODID, XBS_FRM_TEXTBOX, '10', XBS_PAT_INT);
 
-        $this->initVar('id', XOBJ_DTYPE_INT, null, true, null, null, _AM_XBS_MODGEN_TBL_CFGID, XBS_FRM_TEXTBOX, '10', XBS_PAT_INT);
+        $this->initVar('id', XOBJ_DTYPE_INT, null, true, null, null, _AM_XBSMODGEN_TBL_CFGID, XBS_FRM_TEXTBOX, '10', XBS_PAT_INT);
 
-        $this->initVar('configname', XOBJ_DTYPE_TXTBOX, null, true, 30, null, _AM_XBS_MODGEN_TBL_CFGNAME, XBS_FRM_TEXTBOX, '30', XBS_PAT_TEXT);
+        $this->initVar('configname', XOBJ_DTYPE_TXTBOX, null, true, 30, null, _AM_XBSMODGEN_TBL_CFGNAME, XBS_FRM_TEXTBOX, '30', XBS_PAT_TEXT);
 
-        $this->initVar('configdesc', XOBJ_DTYPE_TXTBOX, null, false, 255, null, _AM_XBS_MODGEN_TBL_CFGDESC, XBS_FRM_TEXTBOX, '50', XBS_PAT_TEXT);
+        $this->initVar('configdesc', XOBJ_DTYPE_TXTBOX, null, false, 255, null, _AM_XBSMODGEN_TBL_CFGDESC, XBS_FRM_TEXTBOX, '50', XBS_PAT_TEXT);
 
-        $this->initVar('configformtype', XOBJ_DTYPE_TXTBOX, 'TXTBOX', true, 6, null, _AM_XBS_MODGEN_TBL_CFGFTYPE, XBS_FRM_CDMSELECT, 'XOBJDTYPE,1,EN,cd_value');
+        $this->initVar('configformtype', XOBJ_DTYPE_TXTBOX, 'TXTBOX', true, 6, null, _AM_XBSMODGEN_TBL_CFGFTYPE, XBS_FRM_CDMSELECT, 'XOBJDTYPE,1,EN,cd_value');
 
-        $this->initVar('configvaltype', XOBJ_DTYPE_TXTBOX, 'text', true, 6, null, _AM_XBS_MODGEN_TBL_CFGFVAL, XBS_FRM_CDMSELECT, 'XOBJVTYPE,1,EN,cd_value');
+        $this->initVar('configvaltype', XOBJ_DTYPE_TXTBOX, 'text', true, 6, null, _AM_XBSMODGEN_TBL_CFGFVAL, XBS_FRM_CDMSELECT, 'XOBJVTYPE,1,EN,cd_value');
 
-        $this->initVar('configlen', XOBJ_DTYPE_INT, '30', false, 3, null, _AM_XBS_MODGEN_TBL_CFGFLEN, XBS_FRM_TEXTBOX, '10', XBS_PAT_INT);
+        $this->initVar('configlen', XOBJ_DTYPE_INT, '30', false, 3, null, _AM_XBSMODGEN_TBL_CFGFLEN, XBS_FRM_TEXTBOX, '10', XBS_PAT_INT);
 
-        $this->initVar('configdefault', XOBJ_DTYPE_TXTBOX, null, false, 60, null, _AM_XBS_MODGEN_TBL_CFGFDEF, XBS_FRM_TEXTBOX, '30', null);
+        $this->initVar('configdefault', XOBJ_DTYPE_TXTBOX, null, false, 60, null, _AM_XBSMODGEN_TBL_CFGFDEF, XBS_FRM_TEXTBOX, '30', null);
 
-        $this->initVar('configoptions', XOBJ_DTYPE_TXTAREA, null, false, null, null, _AM_XBS_MODGEN_TBL_CFGFOPT, XBS_FRM_TEXTAREA, '5,50', null);
+        $this->initVar('configoptions', XOBJ_DTYPE_TXTAREA, null, false, null, null, _AM_XBSMODGEN_TBL_CFGFOPT, XBS_FRM_TEXTAREA, '5,50', null);
 
         parent::__construct();
     }

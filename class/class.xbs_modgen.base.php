@@ -108,7 +108,7 @@ class ModgenObject extends CDMBaseObject
             if (null != $var['frmValPattern']) {
                 if (!preg_match($var['frmValPattern'], $var['value'])) {
                     $ret = false;
-                    $this->setErrors(sprintf(_AM_XBS_MODGEN_ADMINERR2, $key, $var['value'], $var['frmValPattern'], get_class($this)));
+                    $this->setErrors(sprintf(_AM_XBSMODGEN_ADMINERR2, $key, $var['value'], $var['frmValPattern'], get_class($this)));
                 }
             }
         }//end foreach
@@ -129,20 +129,20 @@ class xbs_modgen_Module extends ModgenObject
 {
     public function __construct()
     {
-        $this->initVar('id', XOBJ_DTYPE_INT, null, true, null, null, _AM_XBS_MODGEN_TBL_MODID, XBS_FRM_TEXTBOX, '10', XBS_PAT_INT);
-        $this->initVar('modname', XOBJ_DTYPE_TXTBOX, null, true, 40, null, _AM_XBS_MODGEN_TBL_MODNAME, XBS_FRM_TEXTBOX, '40', XBS_PAT_TEXT);
-        $this->initVar('modtag', XOBJ_DTYPE_TXTBOX, null, true, 10, null, _AM_XBS_MODGEN_TBL_MODTAG, XBS_FRM_TEXTBOX, '10', XBS_PAT_TEXT);
-        $this->initVar('moddesc', XOBJ_DTYPE_TXTAREA, null, false, 40, null, _AM_XBS_MODGEN_TBL_MODDESC, XBS_FRM_TEXTAREA, '5,50', XBS_PAT_TEXT);
-        $this->initVar('modcredits', XOBJ_DTYPE_TXTAREA, null, false, 40, null, _AM_XBS_MODGEN_TBL_MODCREDITS, XBS_FRM_TEXTAREA, '5,50', XBS_PAT_TEXT);
-        $this->initVar('hasadmin', XOBJ_DTYPE_INT, 1, true, null, null, _AM_XBS_MODGEN_TBL_MODHASADMIN, XBS_FRM_RADIOYN, null, XBS_PAT_BOOLINT);
-        $this->initVar('hasuserside', XOBJ_DTYPE_INT, 1, true, null, null, _AM_XBS_MODGEN_TBL_MODHASUSERSIDE, XBS_FRM_RADIOYN, null, XBS_PAT_BOOLINT);
-        $this->initVar('hassearch', XOBJ_DTYPE_INT, 0, true, null, null, _AM_XBS_MODGEN_TBL_MODHASSEARCH, XBS_FRM_RADIOYN, null, XBS_PAT_BOOLINT);
-        $this->initVar('hasnotification', XOBJ_DTYPE_INT, 0, true, null, null, _AM_XBS_MODGEN_TBL_MODHASNOTIFICATION, XBS_FRM_RADIOYN, null, XBS_PAT_BOOLINT);
-        $this->initVar('hascomments', XOBJ_DTYPE_INT, 0, true, null, null, _AM_XBS_MODGEN_TBL_MODHASCOMMENTS, XBS_FRM_RADIOYN, null, XBS_PAT_BOOLINT);
-        $this->initVar('moddir', XOBJ_DTYPE_TXTBOX, null, true, 10, null, _AM_XBS_MODGEN_TBL_MODDIR, XBS_FRM_TEXTBOX, '10', XBS_PAT_TEXT);
-        $this->initVar('modtargetdir', XOBJ_DTYPE_TXTBOX, null, true, 255, null, _AM_XBS_MODGEN_TBL_MODTARGETDIR, XBS_FRM_TEXTBOX, '50', XBS_PAT_ABSPATH);
-        $this->initVar('lastgen', XOBJ_DTYPE_MTIME, null, false, null, null, _AM_XBS_MODGEN_TBL_MODLASTGEN, XBS_FRM_DATETIME, null);
-        //$this->initVar('fileowner',XOBJ_DTYPE_TXTBOX,null,false,30,null,_AM_XBS_MODGEN_TBL_MODFOWNER,XBS_FRM_TEXTBOX,'30',XBS_PAT_TEXT);
+        $this->initVar('id', XOBJ_DTYPE_INT, null, true, null, null, _AM_XBSMODGEN_TBL_MODID, XBS_FRM_TEXTBOX, '10', XBS_PAT_INT);
+        $this->initVar('modname', XOBJ_DTYPE_TXTBOX, null, true, 40, null, _AM_XBSMODGEN_TBL_MODNAME, XBS_FRM_TEXTBOX, '40', XBS_PAT_TEXT);
+        $this->initVar('modtag', XOBJ_DTYPE_TXTBOX, null, true, 10, null, _AM_XBSMODGEN_TBL_MODTAG, XBS_FRM_TEXTBOX, '10', XBS_PAT_TEXT);
+        $this->initVar('moddesc', XOBJ_DTYPE_TXTAREA, null, false, 40, null, _AM_XBSMODGEN_TBL_MODDESC, XBS_FRM_TEXTAREA, '5,50', XBS_PAT_TEXT);
+        $this->initVar('modcredits', XOBJ_DTYPE_TXTAREA, null, false, 40, null, _AM_XBSMODGEN_TBL_MODCREDITS, XBS_FRM_TEXTAREA, '5,50', XBS_PAT_TEXT);
+        $this->initVar('hasadmin', XOBJ_DTYPE_INT, 1, true, null, null, _AM_XBSMODGEN_TBL_MODHASADMIN, XBS_FRM_RADIOYN, null, XBS_PAT_BOOLINT);
+        $this->initVar('hasuserside', XOBJ_DTYPE_INT, 1, true, null, null, _AM_XBSMODGEN_TBL_MODHASUSERSIDE, XBS_FRM_RADIOYN, null, XBS_PAT_BOOLINT);
+        $this->initVar('hassearch', XOBJ_DTYPE_INT, 0, true, null, null, _AM_XBSMODGEN_TBL_MODHASSEARCH, XBS_FRM_RADIOYN, null, XBS_PAT_BOOLINT);
+        $this->initVar('hasnotification', XOBJ_DTYPE_INT, 0, true, null, null, _AM_XBSMODGEN_TBL_MODHASNOTIFICATION, XBS_FRM_RADIOYN, null, XBS_PAT_BOOLINT);
+        $this->initVar('hascomments', XOBJ_DTYPE_INT, 0, true, null, null, _AM_XBSMODGEN_TBL_MODHASCOMMENTS, XBS_FRM_RADIOYN, null, XBS_PAT_BOOLINT);
+        $this->initVar('moddir', XOBJ_DTYPE_TXTBOX, null, true, 10, null, _AM_XBSMODGEN_TBL_MODDIR, XBS_FRM_TEXTBOX, '10', XBS_PAT_TEXT);
+        $this->initVar('modtargetdir', XOBJ_DTYPE_TXTBOX, null, true, 255, null, _AM_XBSMODGEN_TBL_MODTARGETDIR, XBS_FRM_TEXTBOX, '50', XBS_PAT_ABSPATH);
+        $this->initVar('lastgen', XOBJ_DTYPE_MTIME, null, false, null, null, _AM_XBSMODGEN_TBL_MODLASTGEN, XBS_FRM_DATETIME, null);
+        //$this->initVar('fileowner',XOBJ_DTYPE_TXTBOX,null,false,30,null,_AM_XBSMODGEN_TBL_MODFOWNER,XBS_FRM_TEXTBOX,'30',XBS_PAT_TEXT);
         parent::__construct();
     }//end function
 
@@ -479,7 +479,7 @@ class xbs_modgen_Module extends ModgenObject
 
             /* Script generation - root directory */
             $footer   = $this->genFooter();
-            $replVars = $this->genScriptVars('xoops_version.php', _AM_XBS_MODGEN_SCR_XVERDESC, 'Installation');
+            $replVars = $this->genScriptVars('xoops_version.php', _AM_XBSMODGEN_SCR_XVERDESC, 'Installation');
 
             //xoops_version.php
             $header  = $this->genHeader($replVars);
@@ -487,25 +487,25 @@ class xbs_modgen_Module extends ModgenObject
             $this->writeScriptContents($header, $content, $footer, $targetDir . DIRECTORY_SEPARATOR . 'xoops_version.php');
 
             //metatags_info.php
-            $this->genChangeVars($replVars, 'metatags_info.php', _AM_XBS_MODGEN_SCR_MTAGDESC, 'Installation');
+            $this->genChangeVars($replVars, 'metatags_info.php', _AM_XBSMODGEN_SCR_MTAGDESC, 'Installation');
             $content = $this->genReplaceVars($this->getScriptContents('metatags_info.scr'), $replVars);
             $this->writeScriptContents('', $content, $footer, $targetDir . DIRECTORY_SEPARATOR . 'metatags_info.php');
 
             //install_funcs.php
-            $this->genChangeVars($replVars, 'install_funcs.php', _AM_XBS_MODGEN_SCR_INSTDESC, 'Installation');
+            $this->genChangeVars($replVars, 'install_funcs.php', _AM_XBSMODGEN_SCR_INSTDESC, 'Installation');
             $header  = $this->genHeader($replVars);
             $content = $this->genReplaceVars($this->getScriptContents('install_funcs.scr'), $replVars);
             $this->writeScriptContents($header, $content, $footer, $targetDir . DIRECTORY_SEPARATOR . 'install_funcs.php');
 
             //header.php
-            $this->genChangeVars($replVars, 'header.php', _AM_XBS_MODGEN_SCR_HEADDESC, 'Main');
+            $this->genChangeVars($replVars, 'header.php', _AM_XBSMODGEN_SCR_HEADDESC, 'Main');
             $header  = $this->genHeader($replVars);
             $content = $this->genReplaceVars($this->getScriptContents('header.scr'), $replVars);
             $this->writeScriptContents($header, $content, $footer, $targetDir . DIRECTORY_SEPARATOR . 'header.php');
 
             //If there is a userside for the module then create an index.php file
             if (1 == (int)$this->getVar('hasuserside')) {
-                $this->genChangeVars($replVars, 'index.php', _AM_XBS_MODGEN_SCR_UINDXDESC, 'User_Function');
+                $this->genChangeVars($replVars, 'index.php', _AM_XBSMODGEN_SCR_UINDXDESC, 'User_Function');
                 $header  = $this->genHeader($replVars);
                 $content = $this->genReplaceVars($this->getScriptContents('umenu.scr'), $replVars);
                 $this->writeScriptContents($header, $content, $footer, $targetDir . DIRECTORY_SEPARATOR . 'index.php');
@@ -516,7 +516,7 @@ class xbs_modgen_Module extends ModgenObject
                 $c    = 0;
                 foreach ($objs as $menu) {
                     $menuName = "umenu$c.php";
-                    $this->genChangeVars($replVars, $menuName, sprintf(_AM_XBS_MODGEN_SCR_UMENUDESC, $menu->getVar('objdesc')), 'User_Function');
+                    $this->genChangeVars($replVars, $menuName, sprintf(_AM_XBSMODGEN_SCR_UMENUDESC, $menu->getVar('objdesc')), 'User_Function');
                     $header  = $this->genHeader($replVars);
                     $content = $this->genReplaceVars($this->getScriptContents('umenu.scr'), $replVars);
                     $this->writeScriptContents($header, $content, $footer, $targetDir . DIRECTORY_SEPARATOR . $menuName);
@@ -532,7 +532,7 @@ class xbs_modgen_Module extends ModgenObject
                 foreach ($objs as $block) {
                     //block script
                     $blockName = "block$c.php";
-                    $this->genChangeVars($replVars, $blockName, sprintf(_AM_XBS_MODGEN_SCR_BLOCKDESC, $block->getVar('objdesc')), 'Blocks', $c);
+                    $this->genChangeVars($replVars, $blockName, sprintf(_AM_XBSMODGEN_SCR_BLOCKDESC, $block->getVar('objdesc')), 'Blocks', $c);
                     $header  = $this->genHeader($replVars);
                     $content = $this->genReplaceVars($this->getScriptContents('block.scr'), $replVars);
                     $this->writeScriptContents($header, $content, $footer, $targetDir . DIRECTORY_SEPARATOR . 'blocks' . DIRECTORY_SEPARATOR . $blockName);
@@ -554,13 +554,13 @@ class xbs_modgen_Module extends ModgenObject
             $langDir = $targetDir . DIRECTORY_SEPARATOR . 'language' . DIRECTORY_SEPARATOR . $lang . DIRECTORY_SEPARATOR;
 
             //admin.php
-            $this->genChangeVars($replVars, 'admin.php', _AM_XBS_MODGEN_SCR_ADMINDESC, 'Definitions');
+            $this->genChangeVars($replVars, 'admin.php', _AM_XBSMODGEN_SCR_ADMINDESC, 'Definitions');
             $header  = $this->genHeader($replVars);
             $content = $this->genReplaceVars($this->getScriptContents('admin.scr'), $replVars);
             $this->writeScriptContents($header, $content, $footer, $langDir . 'admin.php');
 
             //admin2.php
-            $this->genChangeVars($replVars, 'admin2.php', _AM_XBS_MODGEN_SCR_ADMIN2DESC, 'Definitions');
+            $this->genChangeVars($replVars, 'admin2.php', _AM_XBSMODGEN_SCR_ADMIN2DESC, 'Definitions');
             $header  = $this->genHeader($replVars);
             $content = $this->getScriptContents('admin2.scr');
             $this->writeScriptContents($header, $content, $footer, $langDir . 'admin2.php');
@@ -586,31 +586,31 @@ class xbs_modgen_Module extends ModgenObject
             /* Script generation - include directory */
             $incDir = $targetDir . DIRECTORY_SEPARATOR . 'include' . DIRECTORY_SEPARATOR;
             //defines.php
-            $this->genChangeVars($replVars, 'defines.php', _AM_XBS_MODGEN_SCR_DEFINESDESC, 'Definitions');
+            $this->genChangeVars($replVars, 'defines.php', _AM_XBSMODGEN_SCR_DEFINESDESC, 'Definitions');
             $header  = $this->genHeader($replVars);
             $content = $this->genReplaceVars($this->getScriptContents('defines.scr'), $replVars);
             $this->writeScriptContents($header, $content, $footer, $incDir . 'defines.php');
 
             //functions.php
-            $this->genChangeVars($replVars, 'functions.php', _AM_XBS_MODGEN_SCR_UFUNCDESC, 'API_Functions');
+            $this->genChangeVars($replVars, 'functions.php', _AM_XBSMODGEN_SCR_UFUNCDESC, 'API_Functions');
             $header  = $this->genHeader($replVars);
             $content = $this->getScriptContents('ufunctions.scr');
             $this->writeScriptContents($header, $content, $footer, $incDir . 'functions.php');
 
             //notification.php
-            $this->genChangeVars($replVars, 'notification.php', _AM_XBS_MODGEN_SCR_NOTIFYDESC, 'Xoops_Integration');
+            $this->genChangeVars($replVars, 'notification.php', _AM_XBSMODGEN_SCR_NOTIFYDESC, 'Xoops_Integration');
             $header  = $this->genHeader($replVars);
             $content = $this->genReplaceVars($this->getScriptContents('notification.scr'), $replVars);
             $this->writeScriptContents($header, $content, $footer, $incDir . 'notification.php');
 
             //comments.php
-            $this->genChangeVars($replVars, 'comments.php', _AM_XBS_MODGEN_SCR_COMMENTSDESC, 'Xoops_Integration');
+            $this->genChangeVars($replVars, 'comments.php', _AM_XBSMODGEN_SCR_COMMENTSDESC, 'Xoops_Integration');
             $header  = $this->genHeader($replVars);
             $content = $this->genReplaceVars($this->getScriptContents('comments.scr'), $replVars);
             $this->writeScriptContents($header, $content, $footer, $incDir . 'comments.php');
 
             //search.php
-            $this->genChangeVars($replVars, 'search.php', _AM_XBS_MODGEN_SCR_SEARCHDESC, 'Xoops_Integration');
+            $this->genChangeVars($replVars, 'search.php', _AM_XBSMODGEN_SCR_SEARCHDESC, 'Xoops_Integration');
             $header  = $this->genHeader($replVars);
             $content = $this->genReplaceVars($this->getScriptContents('search.scr'), $replVars);
             $this->writeScriptContents($header, $content, $footer, $incDir . 'search.php');
@@ -619,20 +619,20 @@ class xbs_modgen_Module extends ModgenObject
             $adminDir = $targetDir . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR;
             //adminindex.php
             if (1 == $this->getVar('hasadmin')) {
-                $this->genChangeVars($replVars, 'adminindex.php', _AM_XBS_MODGEN_SCR_AINDXDESC, 'Admin');
+                $this->genChangeVars($replVars, 'adminindex.php', _AM_XBSMODGEN_SCR_AINDXDESC, 'Admin');
                 $header  = $this->genHeader($replVars);
                 $content = $this->genReplaceVars($this->getScriptContents('adminindex.scr'), $replVars);
                 $this->writeScriptContents($header, $content, $footer, $adminDir . 'adminindex.php');
             }
 
             //menu.php
-            $this->genChangeVars($replVars, 'menu.php', _AM_XBS_MODGEN_SCR_AMENUDESC, 'Admin');
+            $this->genChangeVars($replVars, 'menu.php', _AM_XBSMODGEN_SCR_AMENUDESC, 'Admin');
             $header  = $this->genHeader($replVars);
             $content = $this->genReplaceVars($this->getScriptContents('menu.scr'), $replVars);
             $this->writeScriptContents($header, $content, $footer, $adminDir . 'menu.php');
 
             //functions.php
-            $this->genChangeVars($replVars, 'functions.php', _AM_XBS_MODGEN_SCR_AFUNCDESC, 'API_Functions');
+            $this->genChangeVars($replVars, 'functions.php', _AM_XBSMODGEN_SCR_AFUNCDESC, 'API_Functions');
             $header  = $this->genHeader($replVars);
             $content = $this->genReplaceVars($this->getScriptContents('afunctions.scr'), $replVars);
             $this->writeScriptContents($header, $content, $footer, $adminDir . 'functions.php');
@@ -643,7 +643,7 @@ class xbs_modgen_Module extends ModgenObject
                 $c    = 0;
                 foreach ($objs as $menu) {
                     $menuName = "admenu$c.php";
-                    $this->genChangeVars($replVars, $menuName, sprintf(_AM_XBS_MODGEN_SCR_AMENU2DESC, $menu->getVar('objdesc')), 'Admin_Function', $c);
+                    $this->genChangeVars($replVars, $menuName, sprintf(_AM_XBSMODGEN_SCR_AMENU2DESC, $menu->getVar('objdesc')), 'Admin_Function', $c);
                     $header  = $this->genHeader($replVars);
                     $content = $this->genReplaceVars($this->getScriptContents('amenu.scr'), $replVars);
                     $this->writeScriptContents($header, $content, $footer, $adminDir . $menuName);
@@ -652,13 +652,13 @@ class xbs_modgen_Module extends ModgenObject
             }//end if
 
             //help.php
-            $this->genChangeVars($replVars, 'help.php', _AM_XBS_MODGEN_SCR_HELPDESC, 'Help');
+            $this->genChangeVars($replVars, 'help.php', _AM_XBSMODGEN_SCR_HELPDESC, 'Help');
             $header  = $this->genHeader($replVars);
             $content = $this->genReplaceVars($this->getScriptContents('help.scr'), $replVars);
             $this->writeScriptContents($header, $content, $footer, $adminDir . 'help.php');
 
             //adminheader.php
-            $this->genChangeVars($replVars, 'adminheader,inc', _AM_XBS_MODGEN_SCR_ADHEADDESC, 'Admin');
+            $this->genChangeVars($replVars, 'adminheader,inc', _AM_XBSMODGEN_SCR_ADHEADDESC, 'Admin');
             $header  = $this->genHeader($replVars);
             $content = $this->genReplaceVars($this->getScriptContents('adminheader.scr'), $replVars);
             $this->writeScriptContents($header, $content, $footer, $adminDir . 'adminheader.php');
@@ -717,15 +717,15 @@ class xbs_modgen_Config extends ModgenObject
 {
     public function __construct()
     {
-        $this->initVar('modid', XOBJ_DTYPE_INT, null, true, null, null, _AM_XBS_MODGEN_TBL_CFGMODID, XBS_FRM_TEXTBOX, '10', XBS_PAT_INT);
-        $this->initVar('id', XOBJ_DTYPE_INT, null, true, null, null, _AM_XBS_MODGEN_TBL_CFGID, XBS_FRM_TEXTBOX, '10', XBS_PAT_INT);
-        $this->initVar('configname', XOBJ_DTYPE_TXTBOX, null, true, 30, null, _AM_XBS_MODGEN_TBL_CFGNAME, XBS_FRM_TEXTBOX, '30', XBS_PAT_TEXT);
-        $this->initVar('configdesc', XOBJ_DTYPE_TXTBOX, null, false, 255, null, _AM_XBS_MODGEN_TBL_CFGDESC, XBS_FRM_TEXTBOX, '50', XBS_PAT_TEXT);
-        $this->initVar('configformtype', XOBJ_DTYPE_TXTBOX, 'TXTBOX', true, 6, null, _AM_XBS_MODGEN_TBL_CFGFTYPE, XBS_FRM_CDMSELECT, 'XOBJDTYPE,1,EN,cd_value');
-        $this->initVar('configvaltype', XOBJ_DTYPE_TXTBOX, 'text', true, 6, null, _AM_XBS_MODGEN_TBL_CFGFVAL, XBS_FRM_CDMSELECT, 'XOBJVTYPE,1,EN,cd_value');
-        $this->initVar('configlen', XOBJ_DTYPE_INT, '30', false, 3, null, _AM_XBS_MODGEN_TBL_CFGFLEN, XBS_FRM_TEXTBOX, '10', XBS_PAT_INT);
-        $this->initVar('configdefault', XOBJ_DTYPE_TXTBOX, null, false, 60, null, _AM_XBS_MODGEN_TBL_CFGFDEF, XBS_FRM_TEXTBOX, '30', null);
-        $this->initVar('configoptions', XOBJ_DTYPE_TXTAREA, null, false, null, null, _AM_XBS_MODGEN_TBL_CFGFOPT, XBS_FRM_TEXTAREA, '5,50', null);
+        $this->initVar('modid', XOBJ_DTYPE_INT, null, true, null, null, _AM_XBSMODGEN_TBL_CFGMODID, XBS_FRM_TEXTBOX, '10', XBS_PAT_INT);
+        $this->initVar('id', XOBJ_DTYPE_INT, null, true, null, null, _AM_XBSMODGEN_TBL_CFGID, XBS_FRM_TEXTBOX, '10', XBS_PAT_INT);
+        $this->initVar('configname', XOBJ_DTYPE_TXTBOX, null, true, 30, null, _AM_XBSMODGEN_TBL_CFGNAME, XBS_FRM_TEXTBOX, '30', XBS_PAT_TEXT);
+        $this->initVar('configdesc', XOBJ_DTYPE_TXTBOX, null, false, 255, null, _AM_XBSMODGEN_TBL_CFGDESC, XBS_FRM_TEXTBOX, '50', XBS_PAT_TEXT);
+        $this->initVar('configformtype', XOBJ_DTYPE_TXTBOX, 'TXTBOX', true, 6, null, _AM_XBSMODGEN_TBL_CFGFTYPE, XBS_FRM_CDMSELECT, 'XOBJDTYPE,1,EN,cd_value');
+        $this->initVar('configvaltype', XOBJ_DTYPE_TXTBOX, 'text', true, 6, null, _AM_XBSMODGEN_TBL_CFGFVAL, XBS_FRM_CDMSELECT, 'XOBJVTYPE,1,EN,cd_value');
+        $this->initVar('configlen', XOBJ_DTYPE_INT, '30', false, 3, null, _AM_XBSMODGEN_TBL_CFGFLEN, XBS_FRM_TEXTBOX, '10', XBS_PAT_INT);
+        $this->initVar('configdefault', XOBJ_DTYPE_TXTBOX, null, false, 60, null, _AM_XBSMODGEN_TBL_CFGFDEF, XBS_FRM_TEXTBOX, '30', null);
+        $this->initVar('configoptions', XOBJ_DTYPE_TXTAREA, null, false, null, null, _AM_XBSMODGEN_TBL_CFGFOPT, XBS_FRM_TEXTAREA, '5,50', null);
 
         parent::__construct();
     }//end function

@@ -52,7 +52,7 @@ require_once __DIR__ . '/admin_header.php';
 //require_once __DIR__ . '/adminheader.php';
 
 //Display the admin menu
-//xoops_module_admin_menu(1,_AM_XBS_MODGEN_ADMENU1);
+//xoops_module_admin_menu(1,_AM_XBSMODGEN_ADMENU1);
 
 /**
  * To use this as a template you need to write code to display
@@ -82,7 +82,7 @@ if (isset($clean['edit'])) { //User has selected a module to edit
 
         setSession($ret);
 
-        redirect_header(XBS_MODGEN_URL . '/admin/adminindex.php', 1, sprintf(_AM_XBS_MODGEN_ADMINMSG1, $ret));
+        redirect_header(XBS_MODGEN_URL . '/admin/adminindex.php', 1, sprintf(_AM_XBSMODGEN_ADMINMSG1, $ret));
     } else {
         //should never get here as redirection occurs
 
@@ -95,11 +95,11 @@ if (isset($clean['edit'])) { //User has selected a module to edit
 
     setSession($clean['xbs_modgen_mod']);
 
-    redirect_header(XBS_MODGEN_URL . '/admin/adminindex.php', 1, sprintf(_AM_XBS_MODGEN_ADMINMSG1, (int)$clean['xbs_modgen_mod']));
+    redirect_header(XBS_MODGEN_URL . '/admin/adminindex.php', 1, sprintf(_AM_XBSMODGEN_ADMINMSG1, (int)$clean['xbs_modgen_mod']));
 } elseif (isset($clean['cancel'])) {
     setSession(0, false);
 
-    redirect_header(XBS_MODGEN_URL . '/admin/adminindex.php', 1, _AM_XBS_MODGEN_ADMINERR1);
+    redirect_header(XBS_MODGEN_URL . '/admin/adminindex.php', 1, _AM_XBSMODGEN_ADMINERR1);
 } else {
     //Present a list of modules to select to work with
 

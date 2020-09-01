@@ -275,12 +275,12 @@ class ModuleHandler extends Xbscdm\BaseHandler
             $res = $this->db->fetchArray($result);
 
             if ('0000-00-00 00:00:00' != $res['lastgen']) {
-                $ret = sprintf(_MD_XBS_MODGEN_MSG1, $res['modname'], $res['lastgen']);
+                $ret = sprintf(_MD_XBSMODGEN_MSG1, $res['modname'], $res['lastgen']);
             } else {
-                $ret = _MD_XBS_MODGEN_MSG2;
+                $ret = _MD_XBSMODGEN_MSG2;
             }
         } else {
-            $ret = _MD_XBS_MODGEN_MSG2;
+            $ret = _MD_XBSMODGEN_MSG2;
         }
 
         return $ret;

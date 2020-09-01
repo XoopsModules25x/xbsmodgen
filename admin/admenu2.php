@@ -54,11 +54,11 @@ require_once __DIR__ . '/admin_header.php';
 if (!isset($_SESSION['xbs_modgen_mod'])) {
     //redirect to module choosing page
 
-    redirect_header(XBS_MODGEN_URL . '/admin/admenu1.php', 1, _AM_XBS_MODGEN_ADMINMSG3);
+    redirect_header(XBS_MODGEN_URL . '/admin/admenu1.php', 1, _AM_XBSMODGEN_ADMINMSG3);
 }
 
 //Display the admin menu
-//xoops_module_admin_menu(2,_AM_XBS_MODGEN_ADMENU2);
+//xoops_module_admin_menu(2,_AM_XBSMODGEN_ADMENU2);
 
 /**
  * To use this as a template you need to write code to display
@@ -85,7 +85,7 @@ if ($edit) { //User has selected a config to edit
     $ret = adminSaveConfig($clean, $requrl);
 
     if ($ret > 0) {
-        redirect_header(XBS_MODGEN_URL . '/admin/admenu2.php', 1, _AM_XBS_MODGEN_ADMINMSG4);
+        redirect_header(XBS_MODGEN_URL . '/admin/admenu2.php', 1, _AM_XBSMODGEN_ADMINMSG4);
     } else {
         //should never get here as redirection occurs
 
@@ -95,7 +95,7 @@ if ($edit) { //User has selected a config to edit
     }
 } elseif ($del) {
     if (adminDelConfig($id, $requrl)) {
-        redirect_header(XBS_MODGEN_URL . '/admin/admenu2.php', 1, _AM_XBS_MODGEN_ADMINMSG5);
+        redirect_header(XBS_MODGEN_URL . '/admin/admenu2.php', 1, _AM_XBSMODGEN_ADMINMSG5);
     } else {
         //should never get here as redirection occurs
 
@@ -104,7 +104,7 @@ if ($edit) { //User has selected a config to edit
         die('Oops - should not have got here #2 - admenu2.php');
     }
 } elseif ($cancel) {
-    redirect_header(XBS_MODGEN_URL . '/admin/admenu2.php', 1, _AM_XBS_MODGEN_ADMINERR1);
+    redirect_header(XBS_MODGEN_URL . '/admin/admenu2.php', 1, _AM_XBSMODGEN_ADMINERR1);
 } else {
     //Present a list of config items for the module to select to work with
 

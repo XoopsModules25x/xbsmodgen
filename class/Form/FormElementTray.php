@@ -68,37 +68,37 @@ class FormElementTray extends \XoopsFormElementTray
         parent::__construct($label);
 
         if ($hasSubmit) {
-            $submit = new \XoopsFormButton('', 'submit', _AM_XBS_MODGEN_SUBMIT, 'submit');
+            $submit = new \XoopsFormButton('', 'submit', _AM_XBSMODGEN_SUBMIT, 'submit');
 
             $this->addElement($submit);
         }
 
         if ($hasEdit) {
-            $edit = new \XoopsFormButton('', 'edit', _AM_XBS_MODGEN_EDIT, 'submit');
+            $edit = new \XoopsFormButton('', 'edit', _AM_XBSMODGEN_EDIT, 'submit');
 
             $this->addElement($edit);
         }
 
         if ($hasSave) {
-            $save = new \XoopsFormButton('', 'save', _AM_XBS_MODGEN_SAVE, 'submit');
+            $save = new \XoopsFormButton('', 'save', _AM_XBSMODGEN_SAVE, 'submit');
 
             $this->addElement($save);
         }
 
         if ($hasCancel) {
-            $cancel = new \XoopsFormButton('', 'cancel', _AM_XBS_MODGEN_CANCEL, 'submit');
+            $cancel = new \XoopsFormButton('', 'cancel', _AM_XBSMODGEN_CANCEL, 'submit');
 
             $this->addElement($cancel);
         }
 
         if ($hasInsert) {
-            $insert = new \XoopsFormButton('', 'insert', _AM_XBS_MODGEN_INSERT, 'submit');
+            $insert = new \XoopsFormButton('', 'insert', _AM_XBSMODGEN_INSERT, 'submit');
 
             $this->addElement($insert);
         }
 
         if ($hasUse) {
-            $use = new \XoopsFormButton('', 'use', _AM_XBS_MODGEN_USE, 'submit');
+            $use = new \XoopsFormButton('', 'use', _AM_XBSMODGEN_USE, 'submit');
 
             $this->addElement($use);
         }

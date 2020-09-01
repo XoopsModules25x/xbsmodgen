@@ -173,11 +173,11 @@ class FormEdit extends \XoopsThemeForm
 
             unset($ele);
         }//end foreach
-        $ftray = new FormElementTray(_AM_XBS_MODGEN_BUTTONTRAY, false, false, false, true, true, false); //button tray
+        $ftray = new FormElementTray(_AM_XBSMODGEN_BUTTONTRAY, false, false, false, true, true, false); //button tray
         $this->addElement($ftray);
 
         if ($hasRequired) {
-            $reqmsg = new \XoopsFormLabel(null, _AM_XBS_MODGEN_REQFLD);
+            $reqmsg = new \XoopsFormLabel(null, _AM_XBSMODGEN_REQFLD);
 
             $this->addElement($reqmsg);
         }

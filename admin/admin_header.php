@@ -22,7 +22,7 @@ include dirname(__DIR__) . '/preloads/autoloader.php';
 
 require  dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
 require $GLOBALS['xoops']->path('www/class/xoopsformloader.php');
-//require  dirname(__DIR__) . '/include/common.php';
+require  dirname(__DIR__) . '/include/defines.php';
 
 $moduleDirName = basename(dirname(__DIR__));
 
@@ -46,7 +46,7 @@ require_once XOOPS_ROOT_PATH . '/modules/xbscdm/include/defines.php';
 /**
  * Include SACC constant defines
  */
-require_once dirname(__DIR__) . '/include/defines.php';
+require_once dirname(__DIR__) . '/include/scrdefines.php';
 
 /**
  * CDM functions
@@ -57,5 +57,5 @@ require_once CDM_PATH . '/include/functions.php';
  */
 require_once dirname(__DIR__) . '/include/functions.php';
 
-require_once __DIR__ . '/functions.php';
+//require_once __DIR__ . '/functions.php';
 

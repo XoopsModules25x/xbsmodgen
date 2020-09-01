@@ -60,10 +60,10 @@ global $_SESSION;
 if (!isset($_SESSION['xbs_modgen_mod'])) {
     //redirect to module choosing page
 
-    redirect_header(XBS_MODGEN_URL . '/admin/admenu1.php', 1, _AM_XBS_MODGEN_ADMINMSG3);
+    redirect_header(XBS_MODGEN_URL . '/admin/admenu1.php', 1, _AM_XBSMODGEN_ADMINMSG3);
 }
 //Display the admin menu
-//xoops_module_admin_menu(7,_AM_XBS_MODGEN_ADMENU7);
+//xoops_module_admin_menu(7,_AM_XBSMODGEN_ADMENU7);
 
 //get POST data and clean it up
 $clean = cleanInput($_POST);

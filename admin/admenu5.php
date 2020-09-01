@@ -51,10 +51,10 @@ require_once __DIR__ . '/admin_header.php';
 if (!isset($_SESSION['xbs_modgen_mod'])) {
     //redirect to module choosing page
 
-    redirect_header(XBS_MODGEN_URL . '/admin/admenu1.php', 1, _AM_XBS_MODGEN_ADMINMSG3);
+    redirect_header(XBS_MODGEN_URL . '/admin/admenu1.php', 1, _AM_XBSMODGEN_ADMINMSG3);
 }
 //Display the admin menu
-//xoops_module_admin_menu(5,_AM_XBS_MODGEN_ADMENU5);
+//xoops_module_admin_menu(5,_AM_XBSMODGEN_ADMENU5);
 
 /**
  * admin menu common processing
@@ -73,7 +73,7 @@ if ($edit) { //User has selected a block to edit
     $ret = adminSaveMenu($clean, 'umenu');
 
     if ($ret > 0) {
-        redirect_header(XBS_MODGEN_URL . '/admin/admenu5.php', 1, _AM_XBS_MODGEN_ADMINMSG4);
+        redirect_header(XBS_MODGEN_URL . '/admin/admenu5.php', 1, _AM_XBSMODGEN_ADMINMSG4);
     } else {
         //should never get here as redirection occurs
 
@@ -83,7 +83,7 @@ if ($edit) { //User has selected a block to edit
     }
 } elseif ($del) {
     if (adminDelMenu($id, 'umenu')) {
-        redirect_header(XBS_MODGEN_URL . '/admin/admenu5.php', 1, _AM_XBS_MODGEN_ADMINMSG5);
+        redirect_header(XBS_MODGEN_URL . '/admin/admenu5.php', 1, _AM_XBSMODGEN_ADMINMSG5);
     } else {
         //should never get here as redirection occurs
 
@@ -92,7 +92,7 @@ if ($edit) { //User has selected a block to edit
         die('Oops - should not have got here #2 - admenu5.php');
     }
 } elseif ($cancel) {
-    redirect_header(XBS_MODGEN_URL . '/admin/admenu5.php', 1, _AM_XBS_MODGEN_ADMINERR1);
+    redirect_header(XBS_MODGEN_URL . '/admin/admenu5.php', 1, _AM_XBSMODGEN_ADMINERR1);
 } else {
     //Present a list of menus for the module to select to work with
 

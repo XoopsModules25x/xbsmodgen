@@ -123,7 +123,7 @@ class ModgenObject extends Xbscdm\BaseObject
                 if (!preg_match($var['frmValPattern'], $var['value'])) {
                     $ret = false;
 
-                    $this->setErrors(sprintf(_AM_XBS_MODGEN_ADMINERR2, $key, $var['value'], $var['frmValPattern'], get_class($this)));
+                    $this->setErrors(sprintf(_AM_XBSMODGEN_ADMINERR2, $key, $var['value'], $var['frmValPattern'], get_class($this)));
                 }
             }
         }//end foreach

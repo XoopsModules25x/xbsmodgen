@@ -50,10 +50,14 @@ if (!defined('XOOPS_ROOT_PATH')) {
 }
 
 global $modversion;
+$moduleDirName      = basename(__DIR__);
+$moduleDirNameUpper = mb_strtoupper($moduleDirName);
 
-$modversion['name']        = _MI_XBS_MODGEN_NAME;
-$modversion['version']     = 1.0;
-$modversion['description'] = _MI_XBS_MODGEN_DESC;
+$modversion['version']       = 2.01;
+$modversion['module_status'] = 'Beta 1';
+$modversion['release_date']  = '2020/08/30';
+$modversion['name']        = _MI_XBSMODGEN_NAME;
+$modversion['description'] = _MI_XBSMODGEN_DESC;
 $modversion['credits']     = 'Ashley Kitson<br>( http://xoobs.net/ )';
 $modversion['author']      = 'Ashley Kitson';
 //$modversion['help'] = "xbs_modgen_help.html";
@@ -61,21 +65,27 @@ $modversion['help']                = 'page=help';
 $modversion['license']             = 'GNU GPL 2.0 or later';
 $modversion['license_url']         = 'www.gnu.org/licenses/gpl-2.0.html';
 $modversion['official']            = 0;
+$modversion['dirname']             = $moduleDirName;
+$modversion['modicons16']          = 'assets/images/icons/16';
+$modversion['modicons32']          = 'assets/images/icons/32';
 $modversion['image']               = 'assets/images/logoModule.png';
-$modversion['dirname']             = basename(__DIR__);
-$modversion['dirmoduleadmin']      = 'Frameworks/moduleclasses';
-$modversion['icons16']             = 'Frameworks/moduleclasses/icons/16';
-$modversion['icons32']             = 'Frameworks/moduleclasses/icons/32';
-$modversion['release_date']        = '2013/10/08';
-$modversion['module_website_url']  = 'www.xoops.org';
+$modversion['module_website_url']  = 'https://xoops.org';
 $modversion['module_website_name'] = 'XOOPS';
-$modversion['module_status']       = 'Beta 1';
-$modversion['min_php']             = '5.3.7';
-$modversion['min_xoops']           = '2.5.6';
-$modversion['min_admin']           = '1.1';
-$modversion['min_db']              = [
-    'mysql'  => '5.0.7',
-    'mysqli' => '5.0.7',
+$modversion['min_php']             = '7.1';
+$modversion['min_xoops']           = '2.5.10';
+$modversion['min_admin']           = '1.2';
+$modversion['min_db']              = ['mysql' => '5.5'];
+$modversion['system_menu']         = 1;
+$modversion['adminindex']          = 'admin/index.php';
+$modversion['adminmenu']           = 'admin/menu.php';
+
+// ------------------- Help files ------------------- //
+$modversion['help']        = 'page=help';
+$modversion['helpsection'] = [
+    ['name' => _MI_XBSMODGEN_OVERVIEW, 'link' => 'page=help'],
+    ['name' => _MI_XBSMODGEN_DISCLAIMER, 'link' => 'page=disclaimer'],
+    ['name' => _MI_XBSMODGEN_LICENSE, 'link' => 'page=license'],
+    ['name' => _MI_XBSMODGEN_SUPPORT, 'link' => 'page=support'],
 ];
 
 $modversion['onUpdate']    = 'install_funcs.php';
@@ -107,22 +117,22 @@ $modversion['hasNotification'] = 0;
 // XBS_MODGEN Configuration items
 
 $modversion['config'][0]['name']        = 'xbs_modgen_author';
-$modversion['config'][0]['title']       = '_MI_XBS_MODGEN_CFG1NAME';
-$modversion['config'][0]['description'] = '_MI_XBS_MODGEN_CFG1DESC';
+$modversion['config'][0]['title']       = '_MI_XBSMODGEN_CFG1NAME';
+$modversion['config'][0]['description'] = '_MI_XBSMODGEN_CFG1DESC';
 $modversion['config'][0]['formtype']    = 'text';
 $modversion['config'][0]['valuetype']   = 'text';
 
 $modversion['config'][1]['name']        = 'xbs_modgen_license';
-$modversion['config'][1]['title']       = '_MI_XBS_MODGEN_CFG2NAME';
-$modversion['config'][1]['description'] = '_MI_XBS_MODGEN_CFG2DESC';
+$modversion['config'][1]['title']       = '_MI_XBSMODGEN_CFG2NAME';
+$modversion['config'][1]['description'] = '_MI_XBSMODGEN_CFG2DESC';
 $modversion['config'][1]['formtype']    = 'select';
 $modversion['config'][1]['valuetype']   = 'text';
 $modversion['config'][1]['default']     = 'GPL';
 $modversion['config'][1]['options']     = ['GNU GPL' => 'GPL', 'GNU Library PL' => 'LGPL'];
 
 $modversion['config'][2]['name']        = 'xbs_modgen_lang';
-$modversion['config'][2]['title']       = '_MI_XBS_MODGEN_CFG3NAME';
-$modversion['config'][2]['description'] = '_MI_XBS_MODGEN_CFG3DESC';
+$modversion['config'][2]['title']       = '_MI_XBSMODGEN_CFG3NAME';
+$modversion['config'][2]['description'] = '_MI_XBSMODGEN_CFG3DESC';
 $modversion['config'][2]['formtype']    = 'select';
 $modversion['config'][2]['valuetype']   = 'text';
 $modversion['config'][2]['default']     = 'EN';
@@ -186,8 +196,8 @@ $modversion['config'][2]['options']     = [
 ];
 
 $modversion['config'][3]['name']        = 'xbs_modgen_country';
-$modversion['config'][3]['title']       = '_MI_XBS_MODGEN_CFG4NAME';
-$modversion['config'][3]['description'] = '_MI_XBS_MODGEN_CFG4DESC';
+$modversion['config'][3]['title']       = '_MI_XBSMODGEN_CFG4NAME';
+$modversion['config'][3]['description'] = '_MI_XBSMODGEN_CFG4DESC';
 $modversion['config'][3]['formtype']    = 'select';
 $modversion['config'][3]['valuetype']   = 'text';
 $modversion['config'][3]['default']     = 'GB';
@@ -435,14 +445,14 @@ $modversion['config'][3]['options']     = [
 ];
 
 $modversion['config'][4]['name']        = 'xbs_modgen_authurl';
-$modversion['config'][4]['title']       = '_MI_XBS_MODGEN_CFG5NAME';
-$modversion['config'][4]['description'] = '_MI_XBS_MODGEN_CFG5DESC';
+$modversion['config'][4]['title']       = '_MI_XBSMODGEN_CFG5NAME';
+$modversion['config'][4]['description'] = '_MI_XBSMODGEN_CFG5DESC';
 $modversion['config'][4]['formtype']    = 'text';
 $modversion['config'][4]['valuetype']   = 'text';
 
 $modversion['config'][5]['name']        = 'xbs_modgen_contact';
-$modversion['config'][5]['title']       = '_MI_XBS_MODGEN_CFG6NAME';
-$modversion['config'][5]['description'] = '_MI_XBS_MODGEN_CFG6DESC';
+$modversion['config'][5]['title']       = '_MI_XBSMODGEN_CFG6NAME';
+$modversion['config'][5]['description'] = '_MI_XBSMODGEN_CFG6DESC';
 $modversion['config'][5]['formtype']    = 'text';
 $modversion['config'][5]['valuetype']   = 'text';
 $modversion['config'][5]['default']     = 'author_email at some dot address';

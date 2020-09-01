@@ -102,7 +102,7 @@ class FormTable
         $this->_dispKey = ($dispKey ? 0 : 1);
 
         if ($this->_hasEdit || $this->_hasDelete) {
-            $colNames[] = _AM_XBS_MODGEN_ACTIONCOL;
+            $colNames[] = _AM_XBSMODGEN_ACTIONCOL;
         }
 
         $this->_cols = $colNames;
@@ -118,15 +118,15 @@ class FormTable
     public function addRow($row)
     {
         if ($this->_hasEdit) {
-            $content = '<a href="' . $this->_editUrl . $row[0] . '">' . _AM_XBS_MODGEN_EDIT . '</a>';
+            $content = '<a href="' . $this->_editUrl . $row[0] . '">' . _AM_XBSMODGEN_EDIT . '</a>';
 
             if ($this->_hasDelete) {
-                $content .= ' - <a href="' . $this->_deleteUrl . $row[0] . '">' . _AM_XBS_MODGEN_DEL . '</a>';
+                $content .= ' - <a href="' . $this->_deleteUrl . $row[0] . '">' . _AM_XBSMODGEN_DEL . '</a>';
             }
 
             $row[] = $content;
         } elseif ($this->_hasDelete) {
-            $content = '<a href="' . $this->_deleteUrl . $row[0] . '">' . _AM_XBS_MODGEN_DEL . '</a>';
+            $content = '<a href="' . $this->_deleteUrl . $row[0] . '">' . _AM_XBSMODGEN_DEL . '</a>';
 
             $row[] = $content;
         }
@@ -181,7 +181,7 @@ class FormTable
         //Put in an insert button if required
 
         if ($this->_hasInsert) {
-            $content .= "<tr>\n  <td colspan=" . $numcols . ' align="right"><form action="' . $this->_insertUrl . '" method="POST"><input type="SUBMIT" value="' . _AM_XBS_MODGEN_INSERT . "\"></form></td>\n</tr>\n";
+            $content .= "<tr>\n  <td colspan=" . $numcols . ' align="right"><form action="' . $this->_insertUrl . '" method="POST"><input type="SUBMIT" value="' . _AM_XBSMODGEN_INSERT . "\"></form></td>\n</tr>\n";
         }
 
         $content .= "</table>\n<!-- End Table Edit Display -->\n";

@@ -49,7 +49,7 @@
 require_once __DIR__ . '/adminheader.php';
 
 //Display the admin menu
-xoops_module_admin_menu(0, _AM_XBS_MODGEN_ADMENU0);
+xoops_module_admin_menu(0, _AM_XBSMODGEN_ADMENU0);
 
 //get a module handler
 $moduleHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Module');
@@ -57,9 +57,9 @@ $moduleHandler = \XoopsModules\Xbsmodgen\Helper::getInstance()->getHandler('Modu
 if (isset($_SESSION['xbs_modgen_mod'])) {
     $mod = $moduleHandler->get($_SESSION['xbs_modgen_mod']);
 
-    $modNameMsg = sprintf(_AM_XBS_MODGEN_ADMINMSG2, $mod->getVar('modname'), $_SESSION['xbs_modgen_mod']);
+    $modNameMsg = sprintf(_AM_XBSMODGEN_ADMINMSG2, $mod->getVar('modname'), $_SESSION['xbs_modgen_mod']);
 } else {
-    $modNameMsg = _AM_XBS_MODGEN_ADMINMSG3;
+    $modNameMsg = _AM_XBSMODGEN_ADMINMSG3;
 }
 //get module generation message to display to user
 $modGenMsg = $moduleHandler->getLastGen();
