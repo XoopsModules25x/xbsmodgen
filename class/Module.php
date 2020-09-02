@@ -472,7 +472,7 @@ class Module extends ModgenObject
             if (!is_dir($targetDir)) {
                 //create directory
 
-                if (!mkdir($targetDir, 0757)) {
+                if (!mkdir($targetDir, 0757) && !is_dir($targetDir)) {
                     return 2; //unable to create directory
                 }
             }
@@ -499,31 +499,57 @@ class Module extends ModgenObject
 
             //create subdirectories
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'admin', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'admin', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'images', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'images', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'blocks', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'blocks', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'class', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'class', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'docs', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'docs', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'include', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'include', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'images', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'images', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . 'shots', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . 'shots', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'language', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'language', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'language' . DIRECTORY_SEPARATOR . $lang, 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'language' . DIRECTORY_SEPARATOR . $lang, 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'sql', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'sql', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'templates', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'templates', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'blocks', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'blocks', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
             //module objecthandler
 

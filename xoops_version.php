@@ -1,44 +1,26 @@
 <?php declare(strict_types=1);
 
-//  ------------------------------------------------------------------------ //
-//                XOOPS - PHP Content Management System                      //
-//                    Copyright (c) 2000 XOOPS.org                           //
-//                       <https://xoops.org>                             //
-//  ------------------------------------------------------------------------ //
-//  This program is free software; you can redistribute it and/or modify     //
-//  it under the terms of the GNU General Public License as published by     //
-//  the Free Software Foundation; either version 2 of the License, or        //
-//  (at your option) any later version.                                      //
-//                                                                           //
-//  You may not change or alter any portion of this comment or credits       //
-//  of supporting developers from this source code or any supporting         //
-//  source code which is considered copyrighted (c) material of the          //
-//  original comment or credit authors.                                      //
-//                                                                           //
-//  This program is distributed in the hope that it will be useful,          //
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of           //
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            //
-//  GNU General Public License for more details.                             //
-//                                                                           //
-//  You should have received a copy of the GNU General Public License        //
-//  along with this program; if not, write to the Free Software              //
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
-//  ------------------------------------------------------------------------ //
-// Author:    Ashley Kitson                                                  //
-// Copyright: (c) 2006, Ashley Kitson                                        //
-// URL:       http://xoobs.net                                               //
-// Module License: GNU General Public License                                //
-// Project:   The XOOPS Project (https://xoops.org/)                      //
-// Module:    XBS Module Generator (XBS_MODGEN)                              //
-// ------------------------------------------------------------------------- //
+/*
+ * You may not change or alter any portion of this comment or credits
+ * of supporting developers from this source code or any supporting source code
+ * which is considered copyrighted (c) material of the original comment or credit authors.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ */
+
 /**
  * Xoops module Installation parameters
  *
  * This file conforms to the Xoops standard for the xoops_version.php file.
  * Constant declarations beginning _MI_ are contained in language/../modinfo.php
  *
- * @author        Ashley Kitson http://xoobs.net
  * @copyright (c) 2004, Ashley Kitson
+ * @copyright     XOOPS Project https://xoops.org/
+ * @license       GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @author        Ashley Kitson http://akitson.bbcb.co.uk
+ * @author        XOOPS Development Team
  * @package       XBS_MODGEN
  * @version       1
  * @subpackage    Installation
@@ -56,10 +38,10 @@ $moduleDirNameUpper = mb_strtoupper($moduleDirName);
 $modversion['version']       = 2.01;
 $modversion['module_status'] = 'Beta 1';
 $modversion['release_date']  = '2020/08/30';
-$modversion['name']        = _MI_XBSMODGEN_NAME;
-$modversion['description'] = _MI_XBSMODGEN_DESC;
-$modversion['credits']     = 'Ashley Kitson<br>( http://xoobs.net/ )';
-$modversion['author']      = 'Ashley Kitson';
+$modversion['name']          = _MI_XBSMODGEN_NAME;
+$modversion['description']   = _MI_XBSMODGEN_DESC;
+$modversion['credits']       = 'Ashley Kitson<br>( http://xoobs.net/ )';
+$modversion['author']        = 'Ashley Kitson';
 //$modversion['help'] = "xbs_modgen_help.html";
 $modversion['help']                = 'page=help';
 $modversion['license']             = 'GNU GPL 2.0 or later';
@@ -97,9 +79,9 @@ $modversion['onUninstall'] = 'install_funcs.php';
 $modversion['sqlfile']['mysql'] = 'sql/mysql.sql';
 
 // Tables created by sql file (without prefix!)
-$modversion['tables'][0] = 'xbs_modgen_module';
-$modversion['tables'][1] = 'xbs_modgen_object';
-$modversion['tables'][2] = 'xbs_modgen_config';
+$modversion['tables'][0] = 'xbsmodgen_module';
+$modversion['tables'][1] = 'xbsmodgen_object';
+$modversion['tables'][2] = 'xbsmodgen_config';
 
 // Main Menu
 $modversion['hasMain'] = 0;

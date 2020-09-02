@@ -17,8 +17,7 @@
 use Xmf\Database\TableLoad;
 use \Xmf\Request;
 use Xmf\Yaml;
-use XoopsModules\Xbsmodgen\{
-    Helper,
+use XoopsModules\Xbsmodgen\{Helper,
     Common\Configurator,
     Utility
 };

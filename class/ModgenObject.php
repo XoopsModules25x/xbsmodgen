@@ -29,7 +29,6 @@ use XoopsModules\Xbscdm;
  * Require CDM objects so we can extend them
  */
 
-
 /**
  * Module generator Object
  *
@@ -77,11 +76,11 @@ class ModgenObject extends Xbscdm\BaseObject
      * @param int    $data_type     set to one of XOBJ_DTYPE_XXX constants (set to XOBJ_DTYPE_OTHER if no data type ckecking nor text sanitizing is required)
      * @param null   $value
      * @param bool   $required      require html form input?
-     * @param int    $maxlength     for XOBJ_DTYPE_TXTBOX type only
+     * @param null   $maxlength     for XOBJ_DTYPE_TXTBOX type only
      * @param string $options
-     * @param string $frmName       Name of field on a form
-     * @param string $frmType       Type of field on form, one of XBS_FRM_.. constants
-     * @param string $frmParams     Additional parameters for form type.
+     * @param null   $frmName       Name of field on a form
+     * @param null   $frmType       Type of field on form, one of XBS_FRM_.. constants
+     * @param null   $frmParams     Additional parameters for form type.
      *                              frmType = XBS_FRM_DATETIME then = fld size
      *                              frmType = XBS_FRM_PASSWORD then = fld size
      *                              frmType = XBS_FRM_SELECT then = list size,multiple select eg 1,false
@@ -91,7 +90,7 @@ class ModgenObject extends Xbscdm\BaseObject
      *                              frmType = XBS_FRM_CDMCOUNTRY then = numRows,LangCode e.g. 1,EN
      *                              frmType = XBS_FRM_CDMCURRENCY then = numRows,LangCode e.g. 1,EN
      *                              frmType = XBS_FRM_CDMLANGUAGE then = numRows,LangCode e.g. 1,EN
-     * @param string $frmValPattern regular expression to validate variable value against e.g. '/\bam[0-9]+/'
+     * @param null   $frmValPattern regular expression to validate variable value against e.g. '/\bam[0-9]+/'
      */
     public function initVar($key, $data_type, $value = null, $required = false, $maxlength = null, $options = '', $frmName = null, $frmType = null, $frmParams = null, $frmValPattern = null)
     {

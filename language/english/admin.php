@@ -5,12 +5,15 @@
  *
  * This is the language specific file for UK English language
  *
- * @author     Ashley Kitson http://xoobs.net
- * @copyright  2006 Ashley Kitson, UK
- * @package    XBS_MODGEN
- * @subpackage Definitions
- * @version    1
- * @access     private
+ * @copyright     Ashley Kitson
+ * @copyright     XOOPS Project https://xoops.org/
+ * @license       GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @author        Ashley Kitson http://akitson.bbcb.co.uk
+ * @author        XOOPS Development Team
+ * @package       XBS_MODGEN
+ * @subpackage    Definitions
+ * @version       1
+ * @access        private
  */
 
 /**#@+
@@ -58,6 +61,9 @@ define('_AM_XBSMODGEN_MODCONFIG', 'xoops');
  */
 
 // Admin menu breadcrumb
+
+define('_AM_XBSMODGEN_HOME', 'Home');
+define('_AM_XBSMODGEN_ABOUT', 'About');
 define('_AM_XBSMODGEN_ADMENU0', 'Modgen Index');
 define('_AM_XBSMODGEN_ADMENU1', 'Module Parameters');
 define('_AM_XBSMODGEN_ADMENU2', 'Module Configs');

@@ -29,7 +29,6 @@ use XoopsModules\Xbscdm;
  * Require CDM objects so we can extend them
  */
 
-
 /**
  * Data container class for a Modgen Configuration Record
  *

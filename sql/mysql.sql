@@ -1,4 +1,4 @@
-CREATE TABLE xbs_modgen_module (
+CREATE TABLE xbsmodgen_module (
     id              INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
     modname         VARCHAR(40)      NOT NULL,
     modtag          VARCHAR(10)      NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE xbs_modgen_module (
     KEY indx_modname (modname)
 )    ENGINE = InnoDB;
 
-CREATE TABLE xbs_modgen_object (
+CREATE TABLE xbsmodgen_object (
     modid      INTEGER UNSIGNED                                                                                                     NOT NULL,
     id         INTEGER UNSIGNED                                                                                                     NOT NULL AUTO_INCREMENT,
     objtype    ENUM ('uscript','ascript','bscript','utpl','atpl','btpl','dochelp','docinstall','docsystem','table','umenu','amenu') NULL,
@@ -25,14 +25,14 @@ CREATE TABLE xbs_modgen_object (
     objloc     VARCHAR(20)                                                                                                          NULL,
     objoptions TEXT                                                                                                                 NULL,
     PRIMARY KEY (id),
-    INDEX xbs_modgen_object_FKIndex1 (modid)
+    INDEX xbsmodgen_object_FKIndex1 (modid)
 #     FOREIGN KEY (modid)
-#         REFERENCES xbs_modgen_module (id)
+#         REFERENCES xbsmodgen_module (id)
 #         ON DELETE NO ACTION
 #         ON UPDATE NO ACTION
 )   ENGINE = InnoDB;
 
-CREATE TABLE xbs_modgen_config (
+CREATE TABLE xbsmodgen_config (
     modid          INTEGER UNSIGNED NOT NULL,
     id             INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
     configname     VARCHAR(30)      NOT NULL,
@@ -43,17 +43,17 @@ CREATE TABLE xbs_modgen_config (
     configdefault  VARCHAR(60)      NULL,
     configoptions  TEXT             NULL,
     PRIMARY KEY (id),
-    INDEX xbs_modgen_config_FKIndex1 (modid)
+    INDEX xbsmodgen_config_FKIndex1 (modid)
 #     FOREIGN KEY (modid)
-#         REFERENCES xbs_modgen_module (id)
+#         REFERENCES xbsmodgen_module (id)
 #         ON DELETE NO ACTION
 #         ON UPDATE NO ACTION
 )    ENGINE = InnoDB;
 
-INSERT INTO cdm_meta ( cd_set,cd_type,cd_len,val_type,val_len,cd_desc)
+INSERT INTO xbscdm_meta ( cd_set,cd_type,cd_len,val_type,val_len,cd_desc)
 VALUES ('XOBJDTYPE', 'VARCHAR', '7', 'VARCHAR', '20', 'Xoops Object Data Types'
 );
-INSERT INTO cdm_code (cd_set,cd,cd_value) VALUES 
+INSERT INTO xbscdm_code (cd_set,cd,cd_value) VALUES
 ('XOBJDTYPE', 'TXTBOX', 'Text Box'), 
 ('XOBJDTYPE', 'TXTAREA', 'Text Area'),
 ('XOBJDTYPE', 'INT', 'Integer'),
@@ -66,20 +66,20 @@ INSERT INTO cdm_code (cd_set,cd,cd_value) VALUES
 ('XOBJDTYPE', 'MTIME', 'Medium Time'),
 ('XOBJDTYPE', 'LTIME', 'Long Time');
 
-INSERT INTO cdm_meta ( cd_set,cd_type,cd_len,val_type,val_len,cd_desc)
+INSERT INTO xbscdm_meta ( cd_set,cd_type,cd_len,val_type,val_len,cd_desc)
 VALUES ('XOBJVTYPE', 'VARCHAR', '8', 'VARCHAR', '20', 'Xoops Object Value Types'
 );
-INSERT INTO cdm_code (cd_set,cd,cd_value,cd_desc) VALUES 
+INSERT INTO xbscdm_code (cd_set,cd,cd_value,cd_desc) VALUES
 ('XOBJVTYPE', 'int', 'Integer', 'Integer'), 
 ('XOBJVTYPE', 'array', 'Array', 'Array'),
 ('XOBJVTYPE', 'float', 'Float', 'Floating Point'),
 ('XOBJVTYPE', 'textarea', 'Text Area', 'Text Area'),
 ('XOBJVTYPE', 'text', 'Text Box', 'Text Box');
 
-INSERT INTO cdm_meta ( cd_set,cd_type,cd_len,val_type,val_len,cd_desc)
+INSERT INTO xbscdm_meta ( cd_set,cd_type,cd_len,val_type,val_len,cd_desc)
 VALUES ('XOBJOTYPE', 'VARCHAR', '10', 'VARCHAR', '30', 'XBS Modgen object types'
 );
-INSERT INTO cdm_code (cd_set,cd,cd_value,cd_desc) VALUES 
+INSERT INTO xbscdm_code (cd_set,cd,cd_value,cd_desc) VALUES
 ('XOBJOTYPE', 'uscript', 'Userside Script', 'Script that is presented to an end user'), 
 ('XOBJOTYPE', 'ascript', 'Admin Script', 'Script that is presented to an admin user'), 
 ('XOBJOTYPE', 'bscript', 'Block Script', 'Script that presents a block'), 

@@ -354,7 +354,7 @@
 </span><span id="201" class="l"><a href="#201"> 201: </a>
 </span><span id="202" class="l"><a href="#202"> 202: </a>        <span class="php-keyword1">include</span> XBS_MODGEN_SCRIPTPATH . DIRECTORY_SEPARATOR . <span class="php-quote">'licenses.php'</span>;
 </span><span id="203" class="l"><a href="#203"> 203: </a>        <span class="php-comment">//xoops_version config items</span>
-</span><span id="204" class="l"><a href="#204"> 204: </a>        <span class="php-var">$cfgHandler</span> = xoops_getModuleHandler(<span class="php-quote">'XBS_MODGENConfig'</span>);
+</span><span id="204" class="l"><a href="#204"> 204: </a>        <span class="php-var">$cfgHandler</span> = xoops_getModuleHandler(<span class="php-quote">'Config'</span>);
 </span><span id="205" class="l"><a href="#205"> 205: </a>        <span class="php-var">$cfgs</span>       = <span class="php-var">$cfgHandler</span>-&gt;getAllConfigs(<span class="php-var">$modid</span>);
 </span><span id="206" class="l"><a href="#206"> 206: </a>        <span class="php-var">$c</span>          = <span class="php-num">0</span>;
 </span><span id="207" class="l"><a href="#207"> 207: </a>        <span class="php-var">$cfgline</span>    = <span class="php-quote">''</span>;
@@ -376,7 +376,7 @@
 </span><span id="223" class="l"><a href="#223"> 223: </a>        }
 </span><span id="224" class="l"><a href="#224"> 224: </a>
 </span><span id="225" class="l"><a href="#225"> 225: </a>        <span class="php-comment">//-- Objects --</span>
-</span><span id="226" class="l"><a href="#226"> 226: </a>        <span class="php-var">$objHandler</span> = xoops_getModuleHandler(<span class="php-quote">'XBS_MODGENObject'</span>);
+</span><span id="226" class="l"><a href="#226"> 226: </a>        <span class="php-var">$objHandler</span> = xoops_getModuleHandler(<span class="php-quote">'Xbsobject'</span>);
 </span><span id="227" class="l"><a href="#227"> 227: </a>
 </span><span id="228" class="l"><a href="#228"> 228: </a>        <span class="php-comment">//sql tables</span>
 </span><span id="229" class="l"><a href="#229"> 229: </a>        <span class="php-var">$sqlLine</span>   = <span class="php-quote">''</span>;
@@ -628,7 +628,7 @@
 </span><span id="475" class="l"><a href="#475"> 475: </a>            @<span class="php-keyword2">mkdir</span>(<span class="php-var">$targetDir</span> . DIRECTORY_SEPARATOR . <span class="php-quote">'templates'</span> . DIRECTORY_SEPARATOR . <span class="php-quote">'blocks'</span>, <span class="php-num">0757</span>);
 </span><span id="476" class="l"><a href="#476"> 476: </a>
 </span><span id="477" class="l"><a href="#477"> 477: </a>            <span class="php-comment">//module objecthandler</span>
-</span><span id="478" class="l"><a href="#478"> 478: </a>            <span class="php-var">$objHandler</span> = xoops_getModuleHandler(<span class="php-quote">'XBS_MODGENObject'</span>);
+</span><span id="478" class="l"><a href="#478"> 478: </a>            <span class="php-var">$objHandler</span> = xoops_getModuleHandler(<span class="php-quote">'Xbsobject'</span>);
 </span><span id="479" class="l"><a href="#479"> 479: </a>
 </span><span id="480" class="l"><a href="#480"> 480: </a>            <span class="php-comment">/* Script generation - root directory */</span>
 </span><span id="481" class="l"><a href="#481"> 481: </a>            <span class="php-var">$footer</span>   = <span class="php-var">$this</span>-&gt;genFooter();

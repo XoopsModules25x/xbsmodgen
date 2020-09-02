@@ -9,6 +9,7 @@
 
     You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
+
 /**
  * XBS Modgen Module shell generator for Xoops CMS
  *
@@ -21,6 +22,9 @@
  * @access     public
  *
  */
+
+use XoopsModules\Xbsmodgen\Helper;
+
 /**
  * Require CDM objects so we can extend them
  */
@@ -39,7 +43,6 @@ require_once CDM_PATH . '/class/class.cdm.base.php';
  */
 class ModgenObject extends CDMBaseObject
 {
-
     /**
      * Constructor
      *
@@ -114,7 +117,6 @@ class ModgenObject extends CDMBaseObject
         }//end foreach
         return $ret;
     }//end function
-
 }//end class
 
 /**
@@ -190,8 +192,7 @@ class xbs_modgen_Module extends ModgenObject
     {
         /**
          * @global this module configuration
-         */
-        global $xoopsModuleConfig;
+         */ global $xoopsModuleConfig;
 
         //get the module id
         $modid = $this->getVar('id');
@@ -201,7 +202,8 @@ class xbs_modgen_Module extends ModgenObject
 
         include XBS_MODGEN_SCRIPTPATH . DIRECTORY_SEPARATOR . 'licenses.php';
         //xoops_version config items
-        $cfgHandler = xoops_getModuleHandler('XBS_MODGENConfig');
+        $helper     = Helper::getInstance();
+        $cfgHandler = $helper->getHandler('Config');
         $cfgs       = $cfgHandler->getAllConfigs($modid);
         $c          = 0;
         $cfgline    = '';
@@ -223,7 +225,8 @@ class xbs_modgen_Module extends ModgenObject
         }
 
         //-- Objects --
-        $objHandler = xoops_getModuleHandler('XBS_MODGENObject');
+        $helper     = Helper::getInstance();
+        $objHandler = $helper->getHandler('Xbsobject');
 
         //sql tables
         $sqlLine   = '';
@@ -354,7 +357,7 @@ class xbs_modgen_Module extends ModgenObject
             '{!DEFCONFIG}'     => $cfgDef,
             '{!DEFMENU}'       => $defMenu,
             '{!XCFGBLOCKS}'    => $blocks,
-            '{!DEFBLOCKS}'     => $defBlocks
+            '{!DEFBLOCKS}'     => $defBlocks,
         ];
 
         return $repl;
@@ -429,12 +432,10 @@ class xbs_modgen_Module extends ModgenObject
     {
         /**
          * @global module configuration
-         */
-        global $xoopsModuleConfig;
+         */ global $xoopsModuleConfig;
         /**
          * @global Xoops database object
-         */
-        global $xoopsDB;
+         */ global $xoopsDB;
 
         //check for script target directory and create if not already existing
         $targetDir = $this->getVar('modtargetdir') . DIRECTORY_SEPARATOR . $this->getVar('moddir');
@@ -475,7 +476,8 @@ class xbs_modgen_Module extends ModgenObject
             @mkdir($targetDir . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'blocks', 0757);
 
             //module objecthandler
-            $objHandler = xoops_getModuleHandler('XBS_MODGENObject');
+            $helper     = Helper::getInstance();
+            $objHandler = $helper->getHandler('Xbsobject');
 
             /* Script generation - root directory */
             $footer   = $this->genFooter();
@@ -697,7 +699,6 @@ class xbs_modgen_Module extends ModgenObject
             if (1 != (int)$this->getVar('hasuserside')) {
                 copy($ifname, $targetDir . DIRECTORY_SEPARATOR . 'index.html');
             }
-
         } else {
             return 1; //no target directory
         }
@@ -781,7 +782,6 @@ class xbs_modgen_Object extends ModgenObject
  */
 class xbs_modgen_BaseHandler extends XoopsObjectHandler
 {
-
     // Public Variables
     /**
      * Set in descendent constructor to name of object that this handler handles
@@ -793,7 +793,6 @@ class xbs_modgen_BaseHandler extends XoopsObjectHandler
      * @var string
      */
     public $ins_tagname;
-
     // Private variables
     /**
      * most recent error number
@@ -811,7 +810,7 @@ class xbs_modgen_BaseHandler extends XoopsObjectHandler
     /**
      * Constructor
      *
-     * @param  xoopsDatabase &$db handle for xoops database object
+     * @param xoopsDatabase &$db handle for xoops database object
      */
     public function __construct($db)
     {
@@ -905,7 +904,7 @@ class xbs_modgen_BaseHandler extends XoopsObjectHandler
      * Abstract method. Overide in ancestor and supply the sql string to get the data
      *
      * @abstract
-     * @param   int $id internal id of the object. Internal code is a unique int value.
+     * @param int $id internal id of the object. Internal code is a unique int value.
      * @return  string SQL string to get data
      */
     public function _get($id)
@@ -916,7 +915,7 @@ class xbs_modgen_BaseHandler extends XoopsObjectHandler
     /**
      * Get data for object given id.
      *
-     * @param  int $id data item internal identifier
+     * @param int $id data item internal identifier
      * @return object
      */
     public function get($id)
@@ -1077,6 +1076,5 @@ class xbs_modgen_BaseHandler extends XoopsObjectHandler
             return true;
         }
     }//end function
-
 } //end of class xbs_modgen_BaseHandler
 
