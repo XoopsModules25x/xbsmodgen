@@ -2,46 +2,27 @@
 
 namespace XoopsModules\Xbsmodgen\Form;
 
-//  ------------------------------------------------------------------------ //
-//                XOOPS - PHP Content Management System                      //
-//                    Copyright (c) 2000 XOOPS.org                           //
-//                       <https://xoops.org>                             //
-//  ------------------------------------------------------------------------ //
-//  This program is free software; you can redistribute it and/or modify     //
-//  it under the terms of the GNU General Public License as published by     //
-//  the Free Software Foundation; either version 2 of the License, or        //
-//  (at your option) any later version.                                      //
-//                                                                           //
-//  You may not change or alter any portion of this comment or credits       //
-//  of supporting developers from this source code or any supporting         //
-//  source code which is considered copyrighted (c) material of the          //
-//  original comment or credit authors.                                      //
-//                                                                           //
-//  This program is distributed in the hope that it will be useful,          //
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of           //
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            //
-//  GNU General Public License for more details.                             //
-//                                                                           //
-//  You should have received a copy of the GNU General Public License        //
-//  along with this program; if not, write to the Free Software              //
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
-//  ------------------------------------------------------------------------ //
-// Author:    Ashley Kitson                                                  //
-// Copyright: (c) 2006, Ashley Kitson
-// URL:       http://xoobs.net			                                     //
-// Project:   The XOOPS Project (https://xoops.org/)                      //
-// Module:    XBS Module generator (XBS_MODGEN)                                     //
-// ------------------------------------------------------------------------- //
+/*
+ * You may not change or alter any portion of this comment or credits
+ * of supporting developers from this source code or any supporting source code
+ * which is considered copyrighted (c) material of the original comment or credit authors.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ */
 
 /**
  * Classes used by XBS Module Generator system to present form data
  *
  * @package       XBS_MODGEN
  * @subpackage    Form_Handling
- * @author        Ashley Kitson http://xoobs.net
- * @copyright (c) 2004 Ashley Kitson, Great Britain
+ * @copyright (c) 2004, Ashley Kitson
+ * @copyright     XOOPS Project https://xoops.org/
+ * @license       GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @author        Ashley Kitson http://akitson.bbcb.co.uk
+ * @author        XOOPS Development Team
  */
-
 
 /**
  * Create a button tray
@@ -68,37 +49,37 @@ class FormElementTray extends \XoopsFormElementTray
         parent::__construct($label);
 
         if ($hasSubmit) {
-            $submit = new \XoopsFormButton('', 'submit', _AM_XBS_MODGEN_SUBMIT, 'submit');
+            $submit = new \XoopsFormButton('', 'submit', _AM_XBSMODGEN_SUBMIT, 'submit');
 
             $this->addElement($submit);
         }
 
         if ($hasEdit) {
-            $edit = new \XoopsFormButton('', 'edit', _AM_XBS_MODGEN_EDIT, 'submit');
+            $edit = new \XoopsFormButton('', 'edit', _AM_XBSMODGEN_EDIT, 'submit');
 
             $this->addElement($edit);
         }
 
         if ($hasSave) {
-            $save = new \XoopsFormButton('', 'save', _AM_XBS_MODGEN_SAVE, 'submit');
+            $save = new \XoopsFormButton('', 'save', _AM_XBSMODGEN_SAVE, 'submit');
 
             $this->addElement($save);
         }
 
         if ($hasCancel) {
-            $cancel = new \XoopsFormButton('', 'cancel', _AM_XBS_MODGEN_CANCEL, 'submit');
+            $cancel = new \XoopsFormButton('', 'cancel', _AM_XBSMODGEN_CANCEL, 'submit');
 
             $this->addElement($cancel);
         }
 
         if ($hasInsert) {
-            $insert = new \XoopsFormButton('', 'insert', _AM_XBS_MODGEN_INSERT, 'submit');
+            $insert = new \XoopsFormButton('', 'insert', _AM_XBSMODGEN_INSERT, 'submit');
 
             $this->addElement($insert);
         }
 
         if ($hasUse) {
-            $use = new \XoopsFormButton('', 'use', _AM_XBS_MODGEN_USE, 'submit');
+            $use = new \XoopsFormButton('', 'use', _AM_XBSMODGEN_USE, 'submit');
 
             $this->addElement($use);
         }

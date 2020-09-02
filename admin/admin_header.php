@@ -16,21 +16,24 @@
  * @package
  * @since
  * @author       XOOPS Development Team
- * @version      $Id $
  */
+
+use Xmf\Module\Admin;
+use XoopsModules\Xbsmodgen\Helper;
+
 include dirname(__DIR__) . '/preloads/autoloader.php';
 
-require  dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
+require dirname(__DIR__, 3) . '/include/cp_header.php';
 require $GLOBALS['xoops']->path('www/class/xoopsformloader.php');
-//require  dirname(__DIR__) . '/include/common.php';
+require dirname(__DIR__) . '/include/defines.php';
 
 $moduleDirName = basename(dirname(__DIR__));
 
 /** @var \XoopsModules\Xbsmodgen\Helper $helper */
-$helper = \XoopsModules\Xbsmodgen\Helper::getInstance();
+$helper = Helper::getInstance();
 
 /** @var \Xmf\Module\Admin $adminObject */
-$adminObject = \Xmf\Module\Admin::getInstance();
+$adminObject = Admin::getInstance();
 
 // Load language files
 $helper->loadLanguage('admin');
@@ -46,16 +49,16 @@ require_once XOOPS_ROOT_PATH . '/modules/xbscdm/include/defines.php';
 /**
  * Include SACC constant defines
  */
-require_once dirname(__DIR__) . '/include/defines.php';
+require_once dirname(__DIR__) . '/include/scrdefines.php';
 
 /**
  * CDM functions
  */
-require_once CDM_PATH . '/include/functions.php';
+//require_once CDM_PATH . '/include/functions.php';
 /**
  * SACC functions
  */
-require_once dirname(__DIR__) . '/include/functions.php';
+//require_once dirname(__DIR__) . '/include/functions.php';
 
-require_once __DIR__ . '/functions.php';
+//require_once __DIR__ . '/functions.php';
 

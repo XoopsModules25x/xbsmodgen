@@ -1,5 +1,5 @@
 <div id="help-template" class="outer">
-    <{include file=$smarty.const._MI_XBSVAT_HELP_HEADER}>
+    <{include file=$smarty.const._MI_XBSMODGEN_HELP_HEADER}>
 
     <h4 class="odd">DISCLAIMER</h4>
     <br>

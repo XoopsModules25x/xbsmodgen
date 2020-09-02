@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class XoopsModules\Xbsmodgen\Form\FormEdit</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li>
+					<a href="namespace-None.html">
+						None					</a>
+
+						</li>
+				<li class="active">
+					<a href="namespace-XoopsModules.html">
+						XoopsModules<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-XoopsModules.Xbsmodgen.html">
+						Xbsmodgen<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-XoopsModules.Xbsmodgen.Common.html">
+						Common					</a>
+
+						</li>
+				<li class="active">
+					<a href="namespace-XoopsModules.Xbsmodgen.Form.html">
+						Form					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-XoopsModules.Xbsmodgen.Form.FormEdit.html">FormEdit</a></li>
+				<li><a href="class-XoopsModules.Xbsmodgen.Form.FormElementTray.html">FormElementTray</a></li>
+				<li><a href="class-XoopsModules.Xbsmodgen.Form.FormSelectModule.html">FormSelectModule</a></li>
+				<li><a href="class-XoopsModules.Xbsmodgen.Form.FormTable.html">FormTable</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-XoopsModules.Xbsmodgen.Form.html" title="Summary of XoopsModules\Xbsmodgen\Form"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class FormEdit</h1>
+
+
+	<div class="description">
+	<p>Create an edit form</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+XoopsThemeForm
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>XoopsModules\Xbsmodgen\Form\FormEdit</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-XoopsModules.html">XoopsModules</a>\<a href="namespace-XoopsModules.Xbsmodgen.html">Xbsmodgen</a>\<a href="namespace-XoopsModules.Xbsmodgen.Form.html">Form</a><br>
+		<b>Package:</b> XBS\MODGEN\Form\Handling<br>
+
+				<b>Version:</b>
+				1<br>
+			<b>Located at</b> <a href="source-class-XoopsModules.Xbsmodgen.Form.FormEdit.html#47-186" title="Go to source code">lass/Form/FormEdit.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-XoopsModules.Xbsmodgen.Form.FormEdit.html#56-184" title="Go to source code">__construct</a>( <span><code><a href="class-ModgenObject.html">ModgenObject</a></code> <var>$obj</var></span>, <span>string <var>$frmName</var></span>, <span>string <var>$nextScript</var></span>, <span>string <var>$labelFlds</var> = <span class="php-quote">''</span></span>, <span>string <var>$keyColName</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$keyFldName</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Constructor</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Constructor</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$obj</var></dt>
+					<dd>Handle to object to edit</dd>
+					<dt><var>$frmName</var></dt>
+					<dd>Name of form</dd>
+					<dt><var>$nextScript</var></dt>
+					<dd>name of POST processing script to execute</dd>
+					<dt><var>$labelFlds</var></dt>
+					<dd>comma seperated list of field names to treat as lables rather than editable fields. Lable flds have a hidden field with the value that can be read by the POST processing script</dd>
+					<dt><var>$keyColName</var></dt>
+					<dd>Name of key field to change name of</dd>
+					<dt><var>$keyFldName</var></dt>
+					<dd>New name for key field</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

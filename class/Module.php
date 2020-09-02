@@ -40,33 +40,33 @@ class Module extends ModgenObject
 {
     public function __construct()
     {
-        $this->initVar('id', XOBJ_DTYPE_INT, null, true, null, null, _AM_XBS_MODGEN_TBL_MODID, XBS_FRM_TEXTBOX, '10', XBS_PAT_INT);
+        $this->initVar('id', XOBJ_DTYPE_INT, null, true, null, null, _AM_XBSMODGEN_TBL_MODID, XBS_FRM_TEXTBOX, '10', XBS_PAT_INT);
 
-        $this->initVar('modname', XOBJ_DTYPE_TXTBOX, null, true, 40, null, _AM_XBS_MODGEN_TBL_MODNAME, XBS_FRM_TEXTBOX, '40', XBS_PAT_TEXT);
+        $this->initVar('modname', XOBJ_DTYPE_TXTBOX, null, true, 40, null, _AM_XBSMODGEN_TBL_MODNAME, XBS_FRM_TEXTBOX, '40', XBS_PAT_TEXT);
 
-        $this->initVar('modtag', XOBJ_DTYPE_TXTBOX, null, true, 10, null, _AM_XBS_MODGEN_TBL_MODTAG, XBS_FRM_TEXTBOX, '10', XBS_PAT_TEXT);
+        $this->initVar('modtag', XOBJ_DTYPE_TXTBOX, null, true, 10, null, _AM_XBSMODGEN_TBL_MODTAG, XBS_FRM_TEXTBOX, '10', XBS_PAT_TEXT);
 
-        $this->initVar('moddesc', XOBJ_DTYPE_TXTAREA, null, false, 40, null, _AM_XBS_MODGEN_TBL_MODDESC, XBS_FRM_TEXTAREA, '5,50', XBS_PAT_TEXT);
+        $this->initVar('moddesc', XOBJ_DTYPE_TXTAREA, null, false, 40, null, _AM_XBSMODGEN_TBL_MODDESC, XBS_FRM_TEXTAREA, '5,50', XBS_PAT_TEXT);
 
-        $this->initVar('modcredits', XOBJ_DTYPE_TXTAREA, null, false, 40, null, _AM_XBS_MODGEN_TBL_MODCREDITS, XBS_FRM_TEXTAREA, '5,50', XBS_PAT_TEXT);
+        $this->initVar('modcredits', XOBJ_DTYPE_TXTAREA, null, false, 40, null, _AM_XBSMODGEN_TBL_MODCREDITS, XBS_FRM_TEXTAREA, '5,50', XBS_PAT_TEXT);
 
-        $this->initVar('hasadmin', XOBJ_DTYPE_INT, 1, true, null, null, _AM_XBS_MODGEN_TBL_MODHASADMIN, XBS_FRM_RADIOYN, null, XBS_PAT_BOOLINT);
+        $this->initVar('hasadmin', XOBJ_DTYPE_INT, 1, true, null, null, _AM_XBSMODGEN_TBL_MODHASADMIN, XBS_FRM_RADIOYN, null, XBS_PAT_BOOLINT);
 
-        $this->initVar('hasuserside', XOBJ_DTYPE_INT, 1, true, null, null, _AM_XBS_MODGEN_TBL_MODHASUSERSIDE, XBS_FRM_RADIOYN, null, XBS_PAT_BOOLINT);
+        $this->initVar('hasuserside', XOBJ_DTYPE_INT, 1, true, null, null, _AM_XBSMODGEN_TBL_MODHASUSERSIDE, XBS_FRM_RADIOYN, null, XBS_PAT_BOOLINT);
 
-        $this->initVar('hassearch', XOBJ_DTYPE_INT, 0, true, null, null, _AM_XBS_MODGEN_TBL_MODHASSEARCH, XBS_FRM_RADIOYN, null, XBS_PAT_BOOLINT);
+        $this->initVar('hassearch', XOBJ_DTYPE_INT, 0, true, null, null, _AM_XBSMODGEN_TBL_MODHASSEARCH, XBS_FRM_RADIOYN, null, XBS_PAT_BOOLINT);
 
-        $this->initVar('hasnotification', XOBJ_DTYPE_INT, 0, true, null, null, _AM_XBS_MODGEN_TBL_MODHASNOTIFICATION, XBS_FRM_RADIOYN, null, XBS_PAT_BOOLINT);
+        $this->initVar('hasnotification', XOBJ_DTYPE_INT, 0, true, null, null, _AM_XBSMODGEN_TBL_MODHASNOTIFICATION, XBS_FRM_RADIOYN, null, XBS_PAT_BOOLINT);
 
-        $this->initVar('hascomments', XOBJ_DTYPE_INT, 0, true, null, null, _AM_XBS_MODGEN_TBL_MODHASCOMMENTS, XBS_FRM_RADIOYN, null, XBS_PAT_BOOLINT);
+        $this->initVar('hascomments', XOBJ_DTYPE_INT, 0, true, null, null, _AM_XBSMODGEN_TBL_MODHASCOMMENTS, XBS_FRM_RADIOYN, null, XBS_PAT_BOOLINT);
 
-        $this->initVar('moddir', XOBJ_DTYPE_TXTBOX, null, true, 10, null, _AM_XBS_MODGEN_TBL_MODDIR, XBS_FRM_TEXTBOX, '10', XBS_PAT_TEXT);
+        $this->initVar('moddir', XOBJ_DTYPE_TXTBOX, null, true, 10, null, _AM_XBSMODGEN_TBL_MODDIR, XBS_FRM_TEXTBOX, '10', XBS_PAT_TEXT);
 
-        $this->initVar('modtargetdir', XOBJ_DTYPE_TXTBOX, null, true, 255, null, _AM_XBS_MODGEN_TBL_MODTARGETDIR, XBS_FRM_TEXTBOX, '50', XBS_PAT_ABSPATH);
+        $this->initVar('modtargetdir', XOBJ_DTYPE_TXTBOX, null, true, 255, null, _AM_XBSMODGEN_TBL_MODTARGETDIR, XBS_FRM_TEXTBOX, '50', XBS_PAT_ABSPATH);
 
-        $this->initVar('lastgen', XOBJ_DTYPE_MTIME, null, false, null, null, _AM_XBS_MODGEN_TBL_MODLASTGEN, XBS_FRM_DATETIME, null);
+        $this->initVar('lastgen', XOBJ_DTYPE_MTIME, null, false, null, null, _AM_XBSMODGEN_TBL_MODLASTGEN, XBS_FRM_DATETIME, null);
 
-        //$this->initVar('fileowner',XOBJ_DTYPE_TXTBOX,null,false,30,null,_AM_XBS_MODGEN_TBL_MODFOWNER,XBS_FRM_TEXTBOX,'30',XBS_PAT_TEXT);
+        //$this->initVar('fileowner',XOBJ_DTYPE_TXTBOX,null,false,30,null,_AM_XBSMODGEN_TBL_MODFOWNER,XBS_FRM_TEXTBOX,'30',XBS_PAT_TEXT);
 
         parent::__construct();
     }
@@ -472,7 +472,7 @@ class Module extends ModgenObject
             if (!is_dir($targetDir)) {
                 //create directory
 
-                if (!mkdir($targetDir, 0757)) {
+                if (!mkdir($targetDir, 0757) && !is_dir($targetDir)) {
                     return 2; //unable to create directory
                 }
             }
@@ -499,31 +499,57 @@ class Module extends ModgenObject
 
             //create subdirectories
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'admin', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'admin', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'images', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'images', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'blocks', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'blocks', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'class', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'class', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'docs', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'docs', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'include', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'include', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'images', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'images', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . 'shots', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . 'shots', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'language', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'language', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'language' . DIRECTORY_SEPARATOR . $lang, 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'language' . DIRECTORY_SEPARATOR . $lang, 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'sql', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'sql', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'templates', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'templates', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
-            @mkdir($targetDir . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'blocks', 0757);
+            if (!mkdir($concurrentDirectory = $targetDir . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'blocks', 0757) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 
             //module objecthandler
 
@@ -533,7 +559,7 @@ class Module extends ModgenObject
 
             $footer = $this->genFooter();
 
-            $replVars = $this->genScriptVars('xoops_version.php', _AM_XBS_MODGEN_SCR_XVERDESC, 'Installation');
+            $replVars = $this->genScriptVars('xoops_version.php', _AM_XBSMODGEN_SCR_XVERDESC, 'Installation');
 
             //xoops_version.php
 
@@ -545,7 +571,7 @@ class Module extends ModgenObject
 
             //metatags_info.php
 
-            $this->genChangeVars($replVars, 'metatags_info.php', _AM_XBS_MODGEN_SCR_MTAGDESC, 'Installation');
+            $this->genChangeVars($replVars, 'metatags_info.php', _AM_XBSMODGEN_SCR_MTAGDESC, 'Installation');
 
             $content = $this->genReplaceVars($this->getScriptContents('metatags_info.scr'), $replVars);
 
@@ -553,7 +579,7 @@ class Module extends ModgenObject
 
             //install_funcs.php
 
-            $this->genChangeVars($replVars, 'install_funcs.php', _AM_XBS_MODGEN_SCR_INSTDESC, 'Installation');
+            $this->genChangeVars($replVars, 'install_funcs.php', _AM_XBSMODGEN_SCR_INSTDESC, 'Installation');
 
             $header = $this->genHeader($replVars);
 
@@ -563,7 +589,7 @@ class Module extends ModgenObject
 
             //header.php
 
-            $this->genChangeVars($replVars, 'header.php', _AM_XBS_MODGEN_SCR_HEADDESC, 'Main');
+            $this->genChangeVars($replVars, 'header.php', _AM_XBSMODGEN_SCR_HEADDESC, 'Main');
 
             $header = $this->genHeader($replVars);
 
@@ -574,7 +600,7 @@ class Module extends ModgenObject
             //If there is a userside for the module then create an index.php file
 
             if (1 == (int)$this->getVar('hasuserside')) {
-                $this->genChangeVars($replVars, 'index.php', _AM_XBS_MODGEN_SCR_UINDXDESC, 'User_Function');
+                $this->genChangeVars($replVars, 'index.php', _AM_XBSMODGEN_SCR_UINDXDESC, 'User_Function');
 
                 $header = $this->genHeader($replVars);
 
@@ -593,7 +619,7 @@ class Module extends ModgenObject
                 foreach ($objs as $menu) {
                     $menuName = "umenu$c.php";
 
-                    $this->genChangeVars($replVars, $menuName, sprintf(_AM_XBS_MODGEN_SCR_UMENUDESC, $menu->getVar('objdesc')), 'User_Function');
+                    $this->genChangeVars($replVars, $menuName, sprintf(_AM_XBSMODGEN_SCR_UMENUDESC, $menu->getVar('objdesc')), 'User_Function');
 
                     $header = $this->genHeader($replVars);
 
@@ -619,7 +645,7 @@ class Module extends ModgenObject
 
                     $blockName = "block$c.php";
 
-                    $this->genChangeVars($replVars, $blockName, sprintf(_AM_XBS_MODGEN_SCR_BLOCKDESC, $block->getVar('objdesc')), 'Blocks', $c);
+                    $this->genChangeVars($replVars, $blockName, sprintf(_AM_XBSMODGEN_SCR_BLOCKDESC, $block->getVar('objdesc')), 'Blocks', $c);
 
                     $header = $this->genHeader($replVars);
 
@@ -655,7 +681,7 @@ class Module extends ModgenObject
 
             //admin.php
 
-            $this->genChangeVars($replVars, 'admin.php', _AM_XBS_MODGEN_SCR_ADMINDESC, 'Definitions');
+            $this->genChangeVars($replVars, 'admin.php', _AM_XBSMODGEN_SCR_ADMINDESC, 'Definitions');
 
             $header = $this->genHeader($replVars);
 
@@ -665,7 +691,7 @@ class Module extends ModgenObject
 
             //admin2.php
 
-            $this->genChangeVars($replVars, 'admin2.php', _AM_XBS_MODGEN_SCR_ADMIN2DESC, 'Definitions');
+            $this->genChangeVars($replVars, 'admin2.php', _AM_XBSMODGEN_SCR_ADMIN2DESC, 'Definitions');
 
             $header = $this->genHeader($replVars);
 
@@ -709,7 +735,7 @@ class Module extends ModgenObject
 
             //defines.php
 
-            $this->genChangeVars($replVars, 'defines.php', _AM_XBS_MODGEN_SCR_DEFINESDESC, 'Definitions');
+            $this->genChangeVars($replVars, 'defines.php', _AM_XBSMODGEN_SCR_DEFINESDESC, 'Definitions');
 
             $header = $this->genHeader($replVars);
 
@@ -719,7 +745,7 @@ class Module extends ModgenObject
 
             //functions.php
 
-            $this->genChangeVars($replVars, 'functions.php', _AM_XBS_MODGEN_SCR_UFUNCDESC, 'API_Functions');
+            $this->genChangeVars($replVars, 'functions.php', _AM_XBSMODGEN_SCR_UFUNCDESC, 'API_Functions');
 
             $header = $this->genHeader($replVars);
 
@@ -729,7 +755,7 @@ class Module extends ModgenObject
 
             //notification.php
 
-            $this->genChangeVars($replVars, 'notification.php', _AM_XBS_MODGEN_SCR_NOTIFYDESC, 'Xoops_Integration');
+            $this->genChangeVars($replVars, 'notification.php', _AM_XBSMODGEN_SCR_NOTIFYDESC, 'Xoops_Integration');
 
             $header = $this->genHeader($replVars);
 
@@ -739,7 +765,7 @@ class Module extends ModgenObject
 
             //comments.php
 
-            $this->genChangeVars($replVars, 'comments.php', _AM_XBS_MODGEN_SCR_COMMENTSDESC, 'Xoops_Integration');
+            $this->genChangeVars($replVars, 'comments.php', _AM_XBSMODGEN_SCR_COMMENTSDESC, 'Xoops_Integration');
 
             $header = $this->genHeader($replVars);
 
@@ -749,7 +775,7 @@ class Module extends ModgenObject
 
             //search.php
 
-            $this->genChangeVars($replVars, 'search.php', _AM_XBS_MODGEN_SCR_SEARCHDESC, 'Xoops_Integration');
+            $this->genChangeVars($replVars, 'search.php', _AM_XBSMODGEN_SCR_SEARCHDESC, 'Xoops_Integration');
 
             $header = $this->genHeader($replVars);
 
@@ -764,7 +790,7 @@ class Module extends ModgenObject
             //adminindex.php
 
             if (1 == $this->getVar('hasadmin')) {
-                $this->genChangeVars($replVars, 'adminindex.php', _AM_XBS_MODGEN_SCR_AINDXDESC, 'Admin');
+                $this->genChangeVars($replVars, 'adminindex.php', _AM_XBSMODGEN_SCR_AINDXDESC, 'Admin');
 
                 $header = $this->genHeader($replVars);
 
@@ -775,7 +801,7 @@ class Module extends ModgenObject
 
             //menu.php
 
-            $this->genChangeVars($replVars, 'menu.php', _AM_XBS_MODGEN_SCR_AMENUDESC, 'Admin');
+            $this->genChangeVars($replVars, 'menu.php', _AM_XBSMODGEN_SCR_AMENUDESC, 'Admin');
 
             $header = $this->genHeader($replVars);
 
@@ -785,7 +811,7 @@ class Module extends ModgenObject
 
             //functions.php
 
-            $this->genChangeVars($replVars, 'functions.php', _AM_XBS_MODGEN_SCR_AFUNCDESC, 'API_Functions');
+            $this->genChangeVars($replVars, 'functions.php', _AM_XBSMODGEN_SCR_AFUNCDESC, 'API_Functions');
 
             $header = $this->genHeader($replVars);
 
@@ -803,7 +829,7 @@ class Module extends ModgenObject
                 foreach ($objs as $menu) {
                     $menuName = "admenu$c.php";
 
-                    $this->genChangeVars($replVars, $menuName, sprintf(_AM_XBS_MODGEN_SCR_AMENU2DESC, $menu->getVar('objdesc')), 'Admin_Function', $c);
+                    $this->genChangeVars($replVars, $menuName, sprintf(_AM_XBSMODGEN_SCR_AMENU2DESC, $menu->getVar('objdesc')), 'Admin_Function', $c);
 
                     $header = $this->genHeader($replVars);
 
@@ -817,7 +843,7 @@ class Module extends ModgenObject
 
             //help.php
 
-            $this->genChangeVars($replVars, 'help.php', _AM_XBS_MODGEN_SCR_HELPDESC, 'Help');
+            $this->genChangeVars($replVars, 'help.php', _AM_XBSMODGEN_SCR_HELPDESC, 'Help');
 
             $header = $this->genHeader($replVars);
 
@@ -827,7 +853,7 @@ class Module extends ModgenObject
 
             //adminheader.php
 
-            $this->genChangeVars($replVars, 'adminheader,inc', _AM_XBS_MODGEN_SCR_ADHEADDESC, 'Admin');
+            $this->genChangeVars($replVars, 'adminheader,inc', _AM_XBSMODGEN_SCR_ADHEADDESC, 'Admin');
 
             $header = $this->genHeader($replVars);
 
